@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductCartModel {
+struct ProductCartModel: Hashable {
     var id: Int
     var finalPrice: Double
     var amount: Int
