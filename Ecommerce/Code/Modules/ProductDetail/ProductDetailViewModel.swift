@@ -25,8 +25,11 @@ final class ProductDetailViewModel: BaseViewModel {
 
     // MARK: - Private Functions
     
-    func favoritePressed(productId: Int) {
-       
+    func showCartSuccessAlert() {
+        alert = BaseAlert.Model(description: "Producto añadido al carrito", buttonText1: "Aceptar", action1: {
+            self.alert = nil
+            self.goBack()
+        })
     }
     
     func goBack() {

@@ -13,6 +13,8 @@ class ProductsData: ObservableObject {
     
     private init() {}
     
+    @Published var productsCart: [ProductCartModel] = []
+    
     @Published var products: [ProductModel] = [ProductModel(id: 0,
                                                             imageName: "image1",
                                                             title: "Modern light clothes",

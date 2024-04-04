@@ -6,7 +6,7 @@ struct ProductDetailView: View {
     @StateObject var viewModel: ProductDetailViewModel
     @ObservedObject var productsData = ProductsData.shared
     
-    @State var itemsSelected: Int = 1
+    @State var amountItems: Int = 1
     @State var finalPrice: Double = 0
     @State var sizeSelected: ClotheSize = .s
 
@@ -41,6 +41,10 @@ struct ProductDetailView: View {
                     
                     BaseButton(style: .primary, text: "Add to cart | \(finalPrice)€", action: {
                         
+                        let productCartModel = ProductCartModel(productId: viewModel.product?.id ?? 0, finalPrice: finalPrice, amount: amountItems, sizeSelected: sizeSelected)
+                        
+                        productsData.productsCart.append(productCartModel)
+                        viewModel.showCartSuccessAlert()
                     })
                     .clipShape(RoundedRectangle(cornerRadius: 40))
                     .padding(.top, 20)
@@ -83,18 +87,18 @@ struct ProductDetailView: View {
             HStack(alignment: .center, spacing: 10) {
                 
                 IconButton(image: "minus", size: .small, isCircular: true, action: {
-                    if itemsSelected > 1 {
-                        itemsSelected -= 1
+                    if amountItems > 1 {
+                        amountItems -= 1
                         finalPrice -= viewModel.product?.price ?? 0
                     }
                 })
                 
-                TextField("\(itemsSelected)", value: $itemsSelected, format: .number)
+                TextField("\(amountItems)", value: $amountItems, format: .number)
                     .frame(width: 10)
                     .disabled(true)
                 
                 IconButton(image: "plus", size: .small, isCircular: true, action: {
-                    itemsSelected += 1
+                    amountItems += 1
                     finalPrice += viewModel.product?.price ?? 0
                 })
             }

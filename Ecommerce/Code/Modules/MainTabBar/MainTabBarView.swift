@@ -42,7 +42,7 @@ struct MainTabBarView: View {
         BaseTabBar(tabSelected: $viewModel.tabSelection, items: [
             BaseTabBar.TabItem(text: "Home", image: "home"),
             BaseTabBar.TabItem(text: "Favorites", image: "heart"),
-            BaseTabBar.TabItem(text: "Checkout", image: "shopping-cart")
+            BaseTabBar.TabItem(text: "Checkout", image: "empty_bag")
         ])
         .onAppear {
             viewModel.readyTab()

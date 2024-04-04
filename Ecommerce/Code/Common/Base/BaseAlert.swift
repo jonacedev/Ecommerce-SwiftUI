@@ -51,7 +51,7 @@ struct BaseAlert: View {
         VStack {
             Spacer()
             ZStack {
-                Color.green
+                Color.white
                     .ignoresSafeArea()
                     .clipShape(RoundedCorner(radius: 20, corners: [.topLeft, .topRight]))
                 VStack(spacing: 12) {
@@ -74,8 +74,8 @@ struct BaseAlert: View {
     }
 
     @ViewBuilder func alertTexts() -> some View {
-        Text(model.title).font(.subheadline).foregroundStyle(.white).multilineTextAlignment(.center)
-        Text(model.description).font(.body).foregroundStyle(.white)
+        Text(model.title).font(.subheadline).foregroundStyle(Color.primaryApp).multilineTextAlignment(.center)
+        Text(model.description).font(.body).foregroundStyle(Color.primaryApp)
             .multilineTextAlignment(.center)
     }
 
