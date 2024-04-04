@@ -4,6 +4,7 @@ import SwiftUI
 struct ProductDetailView: View {
     
     @StateObject var viewModel: ProductDetailViewModel
+    @State var itemsSelected: Double = 0
 
     var body: some View {
         BaseView(content: content, vm: viewModel)
@@ -22,8 +23,27 @@ struct ProductDetailView: View {
                     
                 VStack(alignment: .leading, spacing: 5) {
                     
-                    Text(viewModel.product?.title ?? "")
-                        .font(.system(size: 25).bold())
+                    HStack(alignment: .top, spacing: 20) {
+                        
+                        Text(viewModel.product?.title ?? "")
+                            .font(.system(size: 25).bold())
+                        
+                        HStack(alignment: .center) {
+                            
+                            IconButton(image: "minus", isCircular: true, action: {
+                                if itemsSelected > 0 {
+                                    itemsSelected -= 1
+                                }
+                            })
+                            
+                            TextField("\(itemsSelected)", value: $itemsSelected, format: .number)
+                                .frame(width: 10)
+                            
+                            IconButton(image: "plus", isCircular: true, action: {
+                                itemsSelected += 1
+                            })
+                        }
+                    }
                     
                     HStack {
                         if let rating = viewModel.product?.rating, rating > 0 {
@@ -33,13 +53,17 @@ struct ProductDetailView: View {
                                 .frame(width: 20, height: 20)
                             }
                         }
+                        
+                        Text("| \(viewModel.product?.reviews ?? 0) " +  "product_detail_reviews_text".localized)
+                            .font(.system(size: 14).bold())
+                            .foregroundStyle(Color.primaryApp)
                     }
                     
                     Text(viewModel.product?.description ?? "")
                         .font(.subheadline)
                         .foregroundStyle(.gray)
                 }
-                .padding(.top, 5)
+                .padding(.top, 10)
                 
                 BaseButton(style: .primary, text: "Add to cart | \(viewModel.product?.price ?? "")", action: {
                     

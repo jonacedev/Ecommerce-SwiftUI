@@ -9,7 +9,7 @@ import SwiftUI
 
 enum ButtonSize: CGFloat {
     case small = 15
-    case medium = 20
+    case medium = 18
     case big = 28
 }
 
@@ -33,8 +33,8 @@ struct IconButton: View {
                     .frame(width: size.rawValue, height: size.rawValue)
                     .padding(8)
                     .foregroundStyle(iconColor)
+                    .background(backgroundColor)
             })
-            .background(backgroundColor)
             .clipShape(Circle())
         } else {
             Button(action: {
@@ -46,8 +46,8 @@ struct IconButton: View {
                     .frame(width: size.rawValue, height: size.rawValue)
                     .padding(10)
                     .foregroundStyle(iconColor)
+                    .background(backgroundColor)
             })
-            .background(backgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
         }
     }

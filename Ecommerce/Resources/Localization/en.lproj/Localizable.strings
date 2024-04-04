@@ -7,3 +7,7 @@
 "default_name_title" = "Jonathan Onrubia";
 
 "searchbar_placeholder" = "Search Clothes";
+
+// Product Detail
+
+"product_detail_reviews_text" = "reviews";
