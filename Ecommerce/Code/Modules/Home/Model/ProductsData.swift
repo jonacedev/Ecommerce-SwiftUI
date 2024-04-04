@@ -13,7 +13,6 @@ class ProductsData: ObservableObject {
     
     private init() {}
     
-    // Create shared variables here
     @Published var products: [ProductModel] = [ProductModel(id: 0,
                                                             imageName: "image1",
                                                             title: "Modern light clothes",
