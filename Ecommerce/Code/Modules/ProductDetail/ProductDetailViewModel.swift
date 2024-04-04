@@ -10,6 +10,7 @@ final class ProductDetailViewModel: BaseViewModel {
 
     private let wireframe: ProductDetailWireframe
     @Published var product: ProductModel?
+    @Published var isSelected: ClotheSize = .s
 
     // MARK: - Init
 
@@ -23,10 +24,6 @@ final class ProductDetailViewModel: BaseViewModel {
     }
 
     // MARK: - Private Functions
-
-    func onAppear() {
-       //getAllInfo()
-    }
     
     func favoritePressed(productId: Int) {
        

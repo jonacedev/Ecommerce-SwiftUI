@@ -27,8 +27,7 @@ struct HomeGridCell: View {
                     .font(.subheadline)
                     .foregroundStyle(.gray)
              
-                
-                Text(product.price)
+                Text("\(product.price.formatted())€")
                     .font(.headline.bold())
                     .padding(.top, 1)
                     .padding(.bottom, 10)
@@ -44,5 +43,5 @@ struct HomeGridCell: View {
 }
 
 #Preview {
-    HomeGridCell(product: ProductModel.getProducts().first!, favoritePressed: { _ in })
+    HomeGridCell(product: ProductsData.shared.products.first!, favoritePressed: { _ in })
 }
