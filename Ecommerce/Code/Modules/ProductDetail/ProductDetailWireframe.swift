@@ -36,7 +36,8 @@ final class ProductDetailWireframe: BaseWireframe {
     // MARK: - Public Functions
     
     func preview() -> some View {
-        view
+        self.product = ProductsData.shared.products.first
+        return view
     }
 
     func push() {

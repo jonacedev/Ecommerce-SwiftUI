@@ -39,17 +39,11 @@ struct ProductDetailView: View {
                     }
                     .padding(.top, 10)
                     
-                    BaseButton(style: .primary, text: "Add to cart | \(finalPrice)€", action: {
+                    let btnText = "Add to cart | " + String.convertDoubleToString(finalPrice) + "€"
+                    BaseButton(style: .primary, text: btnText, action: {
                         
-                        let productCartModel = ProductCartModel(productId: viewModel.product?.id ?? 0, finalPrice: finalPrice, amount: amountItems, sizeSelected: sizeSelected)
-                        
-                        if let idx = productsData.productsCart.firstIndex(where: { $0.id == productCartModel.id && $0.sizeSelected == sizeSelected }) {
-                            productsData.productsCart[idx].finalPrice += productCartModel.finalPrice
-                            productsData.productsCart[idx].amount += productCartModel.amount
-                        }
-                        else {
-                            productsData.productsCart.append(productCartModel)
-                        }
+                        let newProduct = ProductCartModel(productId: viewModel.product?.id ?? 0, finalPrice: finalPrice, amount: amountItems, sizeSelected: sizeSelected)
+                        productsData.addProductToCart(product: newProduct)
                         
                         viewModel.showCartSuccessAlert()
                     })
@@ -145,7 +139,5 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-    let productDetailWireframe = ProductDetailWireframe(navigator: nil)
-    productDetailWireframe.product = ProductsData.shared.products.first
-    return productDetailWireframe.preview()
+    ProductDetailWireframe(navigator: nil).preview()
 }

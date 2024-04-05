@@ -43,4 +43,11 @@ extension String {
         }
         return result
     }
+    
+    static func convertDoubleToString(_ value: Double?, minFractionDigits: Int = 2, maxFractionDigits: Int = 2, stringIfNil: String? = nil) -> String {
+        if let num = value {
+            return NSNumber(value: num).toString(minFractionDigits: minFractionDigits, maxFractionDigits: maxFractionDigits)
+        }
+        return stringIfNil ?? ""
+    }
 }

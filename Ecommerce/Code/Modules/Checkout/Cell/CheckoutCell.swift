@@ -13,6 +13,7 @@ struct CheckoutCell: View {
     var product: ProductCartModel
     @State var amountItems: Int = 1
     @State var finalPrice: Double = 0
+    var updateProduct: (Double, Int) -> Void
     
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
@@ -39,7 +40,7 @@ struct CheckoutCell: View {
                 
                 HStack(alignment: .center, spacing: 10) {
                     
-                    Text("\(finalPrice.formatted())€")
+                    Text(String.convertDoubleToString(finalPrice) + "€")
                         .font(.system(size: 17).bold())
                         .padding(.top, 10)
                     
@@ -49,6 +50,7 @@ struct CheckoutCell: View {
                         if amountItems > 1 {
                             amountItems -= 1
                             finalPrice -= productsData.products[product.id].price
+                            updateProduct(finalPrice, amountItems)
                         }
                     })
                     .buttonStyle(.plain)
@@ -60,6 +62,7 @@ struct CheckoutCell: View {
                     IconButton(image: "plus", size: .small, isCircular: true, action: {
                         amountItems += 1
                         finalPrice += productsData.products[product.id].price
+                        updateProduct(finalPrice, amountItems)
                     })
                     .buttonStyle(.plain)
                 }
@@ -69,11 +72,10 @@ struct CheckoutCell: View {
             finalPrice = product.finalPrice
             amountItems = product.amount
         }
-        //.frame(maxWidth: .infinity, maxHeight: .infinity)
         
     }
 }
 
 #Preview {
-    CheckoutCell(product: ProductCartModel(productId: 0, finalPrice: 212, amount: 2, sizeSelected: .s))
+    CheckoutCell(product: ProductCartModel(productId: 0, finalPrice: 212, amount: 2, sizeSelected: .s), updateProduct: { _,_ in })
 }

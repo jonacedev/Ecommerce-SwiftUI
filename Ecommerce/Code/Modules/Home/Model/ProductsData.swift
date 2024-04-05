@@ -15,6 +15,9 @@ class ProductsData: ObservableObject {
     
     @Published var productsCart: [ProductCartModel] = []
     
+    // MARK: - Only to use in previews
+    @Published var productCartMock: ProductCartModel = ProductCartModel(productId: 0, finalPrice: 209.99, amount: 1, sizeSelected: .s)
+    
     @Published var products: [ProductModel] = [ProductModel(id: 0,
                                                             imageName: "image1",
                                                             title: "Modern light clothes",
@@ -60,4 +63,22 @@ class ProductsData: ObservableObject {
                                                             description: "Its Simple and elegant shape makes it perfect for those of you who want minimalist clothes.",
                                                             rating: 2,
                                                             reviews: 93)]
+    
+    
+    func addProductToCart(product: ProductCartModel) {
+        if let idx = productsCart.firstIndex(where: { $0.id == product.id && $0.sizeSelected == product.sizeSelected }) {
+            productsCart[idx].finalPrice += product.finalPrice
+            productsCart[idx].amount += product.amount
+        }
+        else {
+            productsCart.append(product)
+        }
+    }
+    
+    func updateProductCart(id: Int, newPrice: Double, newItemsAmount: Int) {
+        if let idx = productsCart.firstIndex(where: { $0.id == id }) {
+            productsCart[idx].finalPrice = newPrice
+            productsCart[idx].amount = newItemsAmount
+        }
+    }
 }

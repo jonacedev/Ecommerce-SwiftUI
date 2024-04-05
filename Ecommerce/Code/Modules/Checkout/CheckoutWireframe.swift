@@ -34,7 +34,8 @@ final class CheckoutWireframe: BaseWireframe {
     }
     
     func preview() -> some View {
-        view
+        view.productsData.productsCart.append(view.productsData.productCartMock)
+        return view
     }
     
 
