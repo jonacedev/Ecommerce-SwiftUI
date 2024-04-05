@@ -11,9 +11,18 @@ struct LaunchView: View {
     }
 
     @ViewBuilder private func content() -> some View {
-        ZStack {
-            //Image("ic_launch_logo")
-            Text("Splash")
+        ZStack(alignment: .center) {
+            Image("splash")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+            
+            VStack {
+                Text("Ecommerce")
+                    .foregroundStyle(.white)
+                    .font(.custom("Verdana", size: 30).bold())
+                    .padding(.bottom, 25)
+            }
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {

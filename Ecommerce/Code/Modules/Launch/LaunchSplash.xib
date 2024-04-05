@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,10 +10,32 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="8Bs-dl-8kV">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ecommerce" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8e-i1-aYA">
+                    <rect key="frame" x="109.5" y="430" width="195" height="36.5"/>
+                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="t8e-i1-aYA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="G0i-2K-bXj"/>
+                <constraint firstAttribute="bottom" secondItem="8Bs-dl-8kV" secondAttribute="bottom" id="btQ-ZR-DbS"/>
+                <constraint firstItem="t8e-i1-aYA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eVb-n8-FID"/>
+                <constraint firstAttribute="trailing" secondItem="8Bs-dl-8kV" secondAttribute="trailing" id="pef-pQ-jwJ"/>
+                <constraint firstItem="8Bs-dl-8kV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rh3-i0-qG6"/>
+                <constraint firstItem="8Bs-dl-8kV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="stu-Fu-jZA"/>
+            </constraints>
             <point key="canvasLocation" x="136.64122137404578" y="20.422535211267608"/>
         </view>
     </objects>
+    <resources>
+        <image name="splash" width="1125" height="2436"/>
+    </resources>
 </document>
