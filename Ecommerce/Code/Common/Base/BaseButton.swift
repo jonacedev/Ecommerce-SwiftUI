@@ -44,7 +44,6 @@ struct BaseButton: View {
         switch style {
         default :
             return RoundedRectangle(cornerRadius: 8).stroke(Color.clear, lineWidth: 0)
-//            return RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.clear, lineWidth: 0)
         }
     }
 

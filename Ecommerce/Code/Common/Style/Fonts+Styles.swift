@@ -2,7 +2,7 @@
 import UIKit
 import SwiftUI
 
-// MARK: - Fonts
+// MARK: - Fonts - Not used in this project
 
 internal enum Fonts: CaseIterable {
    
@@ -10,8 +10,6 @@ internal enum Fonts: CaseIterable {
     
     case dorrisBold
     case manropeRegular
-    case manropeMedium
-    case manropeBold
     
     // MARK: Helpers
     
@@ -19,10 +17,6 @@ internal enum Fonts: CaseIterable {
 //        switch self {
 //        case .manropeRegular:
 //            return "Manrope-Regular"
-//        case .manropeMedium:
-//            return "Manrope-Medium"
-//        case .manropeBold:
-//            return "Manrope-Bold"
 //        case .dorrisBold:
 //            return "Dorris-UltraBold"
 //        }
@@ -36,16 +30,6 @@ public extension Font {
 //    /// - Parameter size: Size to return font for
 //    static func manropeRegular(size: CGFloat) -> Font {
 //        return custom(Fonts.manropeRegular.fontName, size: size)
-//    }
-//    
-//    /// - Parameter size: Size to return font for
-//    static func manropeMedium(size: CGFloat) -> Font {
-//        return custom(Fonts.manropeMedium.fontName, size: size)
-//    }
-//    
-//    /// - Parameter size: Size to return font for
-//    static func manropeBold(size: CGFloat) -> Font {
-//        return custom(Fonts.manropeBold.fontName, size: size)
 //    }
 //    
 //    /// - Parameter size: Size to return font for
