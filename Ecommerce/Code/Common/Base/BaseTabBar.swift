@@ -41,9 +41,8 @@ struct BaseTabBar: View {
             }
         }
         .frame(width: UIApplication.screenWidth - 40, height: height)
-        .clipShape(RoundedCorner())
+        .clipShape(Capsule())
         .padding(.bottom, 20)
-    
     }
 }
 

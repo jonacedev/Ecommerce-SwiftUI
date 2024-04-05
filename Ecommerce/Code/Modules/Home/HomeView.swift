@@ -58,6 +58,7 @@ struct HomeView: View {
                    }
                }
            }
+            .padding(.bottom, 70)
        }
         .scrollIndicators(.hidden)
         .padding(.horizontal, 20)

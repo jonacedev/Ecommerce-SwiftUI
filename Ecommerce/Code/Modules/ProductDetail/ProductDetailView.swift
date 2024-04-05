@@ -41,7 +41,7 @@ struct ProductDetailView: View {
                     
                     BaseButton(style: .primary, text: "Add to cart | \(finalPrice)€", action: {
                         
-                        var productCartModel = ProductCartModel(productId: viewModel.product?.id ?? 0, finalPrice: finalPrice, amount: amountItems, sizeSelected: sizeSelected)
+                        let productCartModel = ProductCartModel(productId: viewModel.product?.id ?? 0, finalPrice: finalPrice, amount: amountItems, sizeSelected: sizeSelected)
                         
                         if let idx = productsData.productsCart.firstIndex(where: { $0.id == productCartModel.id && $0.sizeSelected == sizeSelected }) {
                             productsData.productsCart[idx].finalPrice += productCartModel.finalPrice
@@ -53,7 +53,7 @@ struct ProductDetailView: View {
                         
                         viewModel.showCartSuccessAlert()
                     })
-                    .clipShape(RoundedRectangle(cornerRadius: 40))
+                    .clipShape(Capsule())
                     .padding(.top, 20)
                 }
                 .padding(.horizontal, 20)

@@ -16,14 +16,15 @@ struct CheckoutCell: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
+            
             Image(productsData.products[product.id].imageName)
                 .resizable()
-                .scaledToFill()
+                .aspectRatio(contentMode: .fill)
                 .frame(width: 110, height: 110)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
-                .offset(y: -4)
             
             VStack(alignment: .leading, spacing: 5) {
+                
                 Text(productsData.products[product.id].title)
                     .font(.system(size: 18).bold())
                 
@@ -68,7 +69,7 @@ struct CheckoutCell: View {
             finalPrice = product.finalPrice
             amountItems = product.amount
         }
-        .frame(maxWidth: .infinity, maxHeight: 150)
+        //.frame(maxWidth: .infinity, maxHeight: .infinity)
         
     }
 }
