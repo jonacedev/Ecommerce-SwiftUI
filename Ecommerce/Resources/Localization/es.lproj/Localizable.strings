@@ -20,6 +20,11 @@
 "product_detail_add_to_cart" = "Add to cart | ";
 
 
+// Favorites
+
+"favorites_empty_list" = "Favorites list is empty";
+
+
 // - Checkout
 
 "checkout_size_title" = "Size:";
