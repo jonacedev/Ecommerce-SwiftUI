@@ -4,7 +4,7 @@ import SwiftUI
 struct HomeView: View {
     
     @StateObject var viewModel: HomeViewModel
-    @State var text: String = ""
+    @State var searchText: String = ""
     @ObservedObject var productsData = ProductsData.shared
     
     var body: some View {
@@ -17,7 +17,7 @@ struct HomeView: View {
             
             VStack {
                 HStack(spacing: 10) {
-                    CustomSearchBar(text: $text, placeholder: "searchbar_placeholder".localized)
+                    CustomSearchBar(text: $searchText, placeholder: "searchbar_placeholder".localized)
                     IconButton(image: "filter", size: .big, action: { })
                 }
             }
@@ -49,12 +49,14 @@ struct HomeView: View {
     @ViewBuilder private func vwList() -> some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.fixed(170)), GridItem(.fixed(170))]) {
-                ForEach(0..<productsData.products.count, id: \.self) { index in
-                    HomeGridCell(product: productsData.products[index], favoritePressed: { favorite in
-                        productsData.products[index].isFavorite = favorite
+                ForEach(0..<filteredResults.count, id: \.self) { index in
+                    HomeGridCell(product: filteredResults[index], favoritePressed: { favorite in
+                        if let idx = productsData.products.firstIndex(where: { $0.id == filteredResults[index].id }) {
+                            productsData.products[idx].isFavorite = favorite
+                        }
                    })
                    .onTapGesture {
-                       viewModel.goToDetail(product: productsData.products[index])
+                       viewModel.goToDetail(product: filteredResults[index])
                    }
                }
            }
@@ -64,6 +66,14 @@ struct HomeView: View {
         .padding(.horizontal, 20)
     }
     
+    
+    var filteredResults: [ProductModel] {
+        if searchText.isEmpty {
+            return productsData.products
+        } else {
+            return productsData.products.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
     
 }
 
