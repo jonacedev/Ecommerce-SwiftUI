@@ -52,6 +52,7 @@ struct ProductDetailView: View {
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, 10)
+                .padding(.bottom, 30)
                 
                 BaseTopBar(model: BaseTopBar.Model(text: "", back: {
                     viewModel.goBack()

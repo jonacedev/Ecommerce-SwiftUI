@@ -16,7 +16,7 @@ struct BaseTabBar: View {
 
     @Binding var tabSelected: Int
     let items: [TabItem]
-    private let height: CGFloat = max(UIApplication.safeArea.bottom, 16) + 30
+    private let height: CGFloat = max(UIApplication.safeArea.bottom, 16) + 35
 
     var body: some View {
        

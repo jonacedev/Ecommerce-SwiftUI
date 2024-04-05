@@ -128,8 +128,9 @@ struct CheckoutView: View {
         }
         .listRowSeparator(.hidden)
         .frame(maxWidth: .infinity)
-        .background(Color.primaryApp.opacity(0.9))
+        .background(Color.primaryApp.opacity(0.95))
         .clipShape(RoundedRectangle(cornerRadius: 8))
+        .padding(.top, 20)
     }
     
     func deleteItem(at offsets: IndexSet) {
