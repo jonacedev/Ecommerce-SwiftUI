@@ -122,12 +122,13 @@ struct CheckoutView: View {
     @ViewBuilder private func vwNoResults() -> some View {
         HStack() {
             Text("There is still nothing in the cart")
+                .foregroundStyle(.white)
                 .font(.subheadline)
                 .padding(25)
         }
         .listRowSeparator(.hidden)
         .frame(maxWidth: .infinity)
-        .background(Color.gray.opacity(0.1))
+        .background(Color.primaryApp.opacity(0.9))
         .clipShape(RoundedRectangle(cornerRadius: 8))
     }
     
@@ -136,7 +137,7 @@ struct CheckoutView: View {
     }
     
     func successAlert() {
-        parentViewModel.alert = BaseAlert.Model(description: "Success Order", buttonText1: "Accept", action1: {
+        parentViewModel.alert = BaseAlert.Model(description: "Order completed", buttonText1: "Accept", action1: {
             parentViewModel.alert = nil
         })
     }
