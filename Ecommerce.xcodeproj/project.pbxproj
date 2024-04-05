@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB181D772BBF410200BD002E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AB181D762BBF410200BD002E /* Alamofire */; };
 		AB7FAB6D2BBC61D200B97DC3 /* certificate in Resources */ = {isa = PBXBuildFile; fileRef = AB7FAB6C2BBC61D200B97DC3 /* certificate */; };
 		AB7FAB722BBC61D200B97DC3 /* BaseActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB712BBC61D200B97DC3 /* BaseActions.swift */; };
 		AB7FAB742BBC61D200B97DC3 /* BaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB732BBC61D200B97DC3 /* BaseAlert.swift */; };
@@ -44,8 +45,6 @@
 		AB7FABC02BBC61D200B97DC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FABBF2BBC61D200B97DC3 /* AppDelegate.swift */; };
 		AB7FABC62BBC61D300B97DC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB7FABC52BBC61D300B97DC3 /* Assets.xcassets */; };
 		AB7FABC92BBC61D300B97DC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB7FABC82BBC61D300B97DC3 /* Preview Assets.xcassets */; };
-		AB7FABD22BBC630700B97DC3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AB7FABD12BBC630700B97DC3 /* Alamofire */; };
-		AB7FABD42BBC630700B97DC3 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = AB7FABD32BBC630700B97DC3 /* AlamofireDynamic */; };
 		AB7FABD72BBC631500B97DC3 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = AB7FABD62BBC631500B97DC3 /* KeychainAccess */; };
 		AB7FABDF2BBC65D400B97DC3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FABDC2BBC65D400B97DC3 /* HomeView.swift */; };
 		AB7FABE02BBC65D400B97DC3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FABDD2BBC65D400B97DC3 /* HomeViewModel.swift */; };
@@ -72,6 +71,19 @@
 		AB7FAC112BBF1BAB00B97DC3 /* ProductCartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAC102BBF1BAB00B97DC3 /* ProductCartModel.swift */; };
 		AB7FAC142BBF281000B97DC3 /* CheckoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAC132BBF281000B97DC3 /* CheckoutCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AB7FAC182BBF3FF200B97DC3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AB7FAB672BBC61D200B97DC3 /* Ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ecommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,9 +156,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB7FABD22BBC630700B97DC3 /* Alamofire in Frameworks */,
-				AB7FABD42BBC630700B97DC3 /* AlamofireDynamic in Frameworks */,
 				AB7FABD72BBC631500B97DC3 /* KeychainAccess in Frameworks */,
+				AB181D772BBF410200BD002E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +169,7 @@
 			children = (
 				AB7FAB692BBC61D200B97DC3 /* Ecommerce */,
 				AB7FAB682BBC61D200B97DC3 /* Products */,
+				AB7FAC152BBF3FF200B97DC3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -454,6 +466,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		AB7FAC152BBF3FF200B97DC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -464,6 +483,7 @@
 				AB7FAB632BBC61D200B97DC3 /* Sources */,
 				AB7FAB642BBC61D200B97DC3 /* Frameworks */,
 				AB7FAB652BBC61D200B97DC3 /* Resources */,
+				AB7FAC182BBF3FF200B97DC3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -471,9 +491,8 @@
 			);
 			name = Ecommerce;
 			packageProductDependencies = (
-				AB7FABD12BBC630700B97DC3 /* Alamofire */,
-				AB7FABD32BBC630700B97DC3 /* AlamofireDynamic */,
 				AB7FABD62BBC631500B97DC3 /* KeychainAccess */,
+				AB181D762BBF410200BD002E /* Alamofire */,
 			);
 			productName = Ecommerce;
 			productReference = AB7FAB672BBC61D200B97DC3 /* Ecommerce.app */;
@@ -505,8 +524,8 @@
 			);
 			mainGroup = AB7FAB5E2BBC61D200B97DC3;
 			packageReferences = (
-				AB7FABD02BBC630700B97DC3 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				AB7FABD52BBC631500B97DC3 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				AB181D752BBF410200BD002E /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = AB7FAB682BBC61D200B97DC3 /* Products */;
 			projectDirPath = "";
@@ -742,9 +761,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ecommerce/Preview Content\"";
+				DEVELOPMENT_TEAM = V469DAHXMC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Ecommerce/Info.plist;
@@ -759,6 +780,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.Ecommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -777,6 +799,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ecommerce/Preview Content\"";
+				DEVELOPMENT_TEAM = V469DAHXMC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Ecommerce/Info.plist;
@@ -825,7 +848,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AB7FABD02BBC630700B97DC3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		AB181D752BBF410200BD002E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -844,15 +867,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AB7FABD12BBC630700B97DC3 /* Alamofire */ = {
+		AB181D762BBF410200BD002E /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AB7FABD02BBC630700B97DC3 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = AB181D752BBF410200BD002E /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		AB7FABD32BBC630700B97DC3 /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AB7FABD02BBC630700B97DC3 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 		AB7FABD62BBC631500B97DC3 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;

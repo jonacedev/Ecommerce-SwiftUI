@@ -27,9 +27,8 @@ struct CheckoutView: View {
                 .onDelete(perform: deleteItem) // Add delete functionality
             }
             .listStyle(.plain)
-            
-            Spacer()
         }
+        .ignoresSafeArea(edges: .bottom)
     }
     
     func deleteItem(at offsets: IndexSet) {

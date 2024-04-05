@@ -19,7 +19,7 @@ struct CheckoutCell: View {
             Image(productsData.products[product.id].imageName)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 90, height: 90)
+                .frame(width: 110, height: 110)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .offset(y: -4)
             
@@ -28,6 +28,10 @@ struct CheckoutCell: View {
                     .font(.system(size: 18).bold())
                 
                 Text(productsData.products[product.id].subTitle)
+                    .font(.subheadline)
+                    .foregroundStyle(.gray)
+                
+                Text("Size:" + " \(product.sizeSelected)".capitalized)
                     .font(.subheadline)
                     .foregroundStyle(.gray)
                 
