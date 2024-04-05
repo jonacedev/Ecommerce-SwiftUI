@@ -26,15 +26,16 @@ struct BaseTabBar: View {
                     Image(item.image)
                         .renderingMode(.template)
                         .resizable()
-                        .frame(width: 18, height: 18)
+                        .frame(width: 20, height: 20)
+                        .foregroundStyle(tabSelected == idx ? .white : .gray)
                     Text(item.text)
-                        .font(tabSelected == idx ? .system(size: 10).bold() : .system(size: 10))
+                        .font(tabSelected == idx ? .system(size: 11).bold() : .system(size: 11))
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
                 .frame(height: height)
-                .background(tabSelected == idx ? Color.white : Color.primaryApp)
-                .foregroundStyle(tabSelected == idx ? Color.black : .white)
+                .background(Color.primaryApp)
+                .foregroundStyle(Color.white)
                 .onTapGesture {
                     tabSelected = idx
                 }
@@ -47,7 +48,7 @@ struct BaseTabBar: View {
 }
 
 #Preview {
-    BaseTabBar(tabSelected: Binding.constant(0), items: [BaseTabBar.TabItem(text: "Texto 1", image: "ic_back"),
-                                                         BaseTabBar.TabItem(text: "Texto 2", image: "ic_back"),
-                                                         BaseTabBar.TabItem(text: "Texto 3", image: "ic_back")])
+    BaseTabBar(tabSelected: Binding.constant(0), items: [BaseTabBar.TabItem(text: "Texto 1", image: "home"),
+                                                         BaseTabBar.TabItem(text: "Texto 2", image: "heart"),
+                                                         BaseTabBar.TabItem(text: "Texto 3", image: "bag_empty")])
 }

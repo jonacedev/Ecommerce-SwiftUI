@@ -18,8 +18,8 @@ final class CheckoutViewModel: BaseViewModel {
     }
 
     // MARK: - Private Functions
-
-    func onAppear() {
-       //getAllInfo()
+    
+    func goToDetail(product: ProductModel) {
+        wireframe.goToDetail(product: product)
     }
 }

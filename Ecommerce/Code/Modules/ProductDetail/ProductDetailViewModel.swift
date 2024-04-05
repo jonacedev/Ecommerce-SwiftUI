@@ -26,7 +26,7 @@ final class ProductDetailViewModel: BaseViewModel {
     // MARK: - Private Functions
     
     func showCartSuccessAlert() {
-        alert = BaseAlert.Model(description: "Producto añadido al carrito", buttonText1: "Aceptar", action1: {
+        alert = BaseAlert.Model(description: "Product added to cart", buttonText1: "Accept", action1: {
             self.alert = nil
             self.goBack()
         })

@@ -35,9 +35,7 @@ final class MainTabBarViewModel: BaseViewModel {
 
     // MARK: - Private Functions
 
-    func onAppear() {
-       //getAllInfo()
-    }
+    func onAppear() { }
     
     func readyTab() {
         tabSelection = tabSelection

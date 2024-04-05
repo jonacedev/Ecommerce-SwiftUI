@@ -3,9 +3,11 @@ import SwiftUI
 
 struct CheckoutView: View {
     
+    @EnvironmentObject var parentViewModel: MainTabBarViewModel
+    
     @StateObject var viewModel: CheckoutViewModel
     @ObservedObject var productsData = ProductsData.shared
-    
+    @State var shippingFee: Double = 3.99
     
     var body: some View {
         BaseView(content: content, vm: viewModel)
@@ -20,6 +22,9 @@ struct CheckoutView: View {
                         CheckoutCell(product: product, updateProduct: { newPrice, newItemsAmount in
                             productsData.updateProductCart(id: product.id, newPrice: newPrice, newItemsAmount: newItemsAmount)
                         })
+                        .onTapGesture {
+                            viewModel.goToDetail(product: productsData.products[product.id])
+                        }
                         .listRowSeparator(.hidden)
                     }
                     .onDelete(perform: deleteItem)
@@ -27,6 +32,12 @@ struct CheckoutView: View {
                     vwCheckoutDetails()
                     
                     BaseButton(style: .primary, text: "Pay", action: {
+                        parentViewModel.loading = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                            parentViewModel.loading = false
+                            productsData.productsCart.removeAll()
+                            successAlert()
+                        })
                        
                     })
                     .listRowSeparator(.hidden)
@@ -49,7 +60,7 @@ struct CheckoutView: View {
         VStack(alignment: .leading, spacing: 20) {
             Text("Shipping information")
                 .font(.system(size: 18).bold())
-                .padding(.top, 20)
+                .padding(.top, 10)
             
             HStack() {
                 Image("visa")
@@ -71,18 +82,39 @@ struct CheckoutView: View {
             .background(Color.gray.opacity(0.2))
             .clipShape(RoundedRectangle(cornerRadius: 8))
             
-            HStack {
-                Text("Total (\(productsData.productsCart.count) items)")
-                Spacer()
-                Text(String.convertDoubleToString(productsData.productsCart.compactMap{$0.finalPrice}.reduce(0, +)) + "€")
-                    .font(.headline)
-            }
-            
-            HStack {
-                Text("Shipping fee")
-                Spacer()
-                Text("0.0€")
-                    .font(.headline)
+            Group {
+                let finalPrice = productsData.productsCart.compactMap{$0.finalPrice}.reduce(0, +)
+                let subTotal = finalPrice + shippingFee
+                
+                HStack {
+                    Text("Total (\(productsData.productsCart.count) items)")
+                        .font(.subheadline)
+                    Spacer()
+                    Text(String.convertDoubleToString(finalPrice) + "€")
+                        .font(.subheadline)
+                }
+                
+                HStack {
+                    Text("Shipping fee")
+                        .font(.subheadline)
+                    Spacer()
+                    Text(String.convertDoubleToString(shippingFee) + "€")
+                        .font(.subheadline)
+                }
+                
+                VStack {
+                    Rectangle()
+                           .frame(height: 1)
+                           .foregroundColor(Color.gray)
+                }
+                
+                HStack {
+                    Text("Sub Total")
+                        .font(.headline)
+                    Spacer()
+                    Text(String.convertDoubleToString(subTotal) + "€")
+                        .font(.headline)
+                }
             }
         }
     }
@@ -90,7 +122,8 @@ struct CheckoutView: View {
     @ViewBuilder private func vwNoResults() -> some View {
         HStack() {
             Text("There is still nothing in the cart")
-                .padding()
+                .font(.subheadline)
+                .padding(25)
         }
         .listRowSeparator(.hidden)
         .frame(maxWidth: .infinity)
@@ -100,6 +133,12 @@ struct CheckoutView: View {
     
     func deleteItem(at offsets: IndexSet) {
         productsData.productsCart.remove(atOffsets: offsets)
+    }
+    
+    func successAlert() {
+        parentViewModel.alert = BaseAlert.Model(description: "Success Order", buttonText1: "Accept", action1: {
+            parentViewModel.alert = nil
+        })
     }
 }
 

@@ -38,7 +38,11 @@ final class CheckoutWireframe: BaseWireframe {
         return view
     }
     
-
+    func goToDetail(product: ProductModel) {
+        let productWireframe = ProductDetailWireframe(navigator: navigator)
+        productWireframe.product = product
+        productWireframe.push()
+    }
 }
 
 

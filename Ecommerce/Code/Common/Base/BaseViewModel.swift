@@ -17,7 +17,7 @@ class BaseViewModel: ObservableObject {
     var userDefaults = UserDefaultsCache()
     //let api = Api.shared
     @Published var alert: BaseAlert.Model?
-    @Published var loading: Bool?
+    @Published var loading: Bool = false
 
     func manage(completion: Subscribers.Completion<BaseError>?, wireframe: BaseWireframe? = nil) {
         hideLoading()

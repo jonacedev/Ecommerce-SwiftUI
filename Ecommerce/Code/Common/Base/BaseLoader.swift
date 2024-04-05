@@ -16,20 +16,20 @@ struct BaseLoader: View {
             BaseBlur().opacity(backOpacity).ignoresSafeArea()
             VStack {
                 progressBar()
-                Text("Cargando").foregroundStyle(.green).font(.largeTitle).padding(.top)
+                
             }
 
         }
         .onAppear {
             withAnimation {
-                backOpacity = 0.95
+                backOpacity = 0.9
             }
         }
     }
 
     @ViewBuilder private func progressBar() -> some View {
         ProgressView()
-            .progressViewStyle(CircularProgressViewStyle(tint: Color.green))
+            .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
             .scaleEffect(2)
     }
 }

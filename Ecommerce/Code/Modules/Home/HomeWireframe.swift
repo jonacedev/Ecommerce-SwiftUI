@@ -43,8 +43,6 @@ final class HomeWireframe: BaseWireframe {
         productWireframe.push()
     }
     
-    
-    
 }
 
 
