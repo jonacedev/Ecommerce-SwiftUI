@@ -13,10 +13,11 @@ class ProductsData: ObservableObject {
     
     private init() {}
     
-    @Published var productsCart: [ProductCartModel] = []
-    
-    // MARK: - Only to use in previews
-    @Published var productCartMock: ProductCartModel = ProductCartModel(productId: 0, finalPrice: 209.99, amount: 1, sizeSelected: .s)
+    @Published var productsCart: [ProductCartModel] = [
+        ProductCartModel(productId: 0, 
+                         finalPrice: 209.99,
+                         amount: 1,
+                         sizeSelected: .s)]
     
     @Published var products: [ProductModel] = [ProductModel(id: 0,
                                                             imageName: "image1",
@@ -38,7 +39,7 @@ class ProductsData: ObservableObject {
                                                             reviews: 20),
                                                ProductModel(id: 2,
                                                             imageName: "image3",
-                                                            title: "Modern clothes",
+                                                            title: "Yellow clothes",
                                                             subTitle: "Dress Modern",
                                                             price: 24.99,
                                                             isFavorite: false,
@@ -56,10 +57,46 @@ class ProductsData: ObservableObject {
                                                             reviews: 34),
                                                ProductModel(id: 4,
                                                             imageName: "image5",
-                                                            title: "Modern light clothes",
+                                                            title: "Green clothes",
                                                             subTitle: "Dress Modern",
                                                             price: 22.99,
-                                                            isFavorite: true,
+                                                            isFavorite: false,
+                                                            description: "Its Simple and elegant shape makes it perfect for those of you who want minimalist clothes.",
+                                                            rating: 2,
+                                                            reviews: 76),
+                                               ProductModel(id: 4,
+                                                            imageName: "image6",
+                                                            title: "White clothes",
+                                                            subTitle: "Dress Modern",
+                                                            price: 20.99,
+                                                            isFavorite: false,
+                                                            description: "Its Simple and elegant shape makes it perfect for those of you who want minimalist clothes.",
+                                                            rating: 2,
+                                                            reviews: 76),
+                                               ProductModel(id: 4,
+                                                            imageName: "image7",
+                                                            title: "Dark Modern clothes",
+                                                            subTitle: "Dress Modern",
+                                                            price: 15.99,
+                                                            isFavorite: false,
+                                                            description: "Its Simple and elegant shape makes it perfect for those of you who want minimalist clothes.",
+                                                            rating: 2,
+                                                            reviews: 76),
+                                               ProductModel(id: 4,
+                                                            imageName: "image8",
+                                                            title: "Gray Modern clothes",
+                                                            subTitle: "Dress Modern",
+                                                            price: 23.99,
+                                                            isFavorite: false,
+                                                            description: "Its Simple and elegant shape makes it perfect for those of you who want minimalist clothes.",
+                                                            rating: 2,
+                                                            reviews: 76),
+                                               ProductModel(id: 4,
+                                                            imageName: "image9",
+                                                            title: "Red clothes",
+                                                            subTitle: "Dress Modern",
+                                                            price: 18.99,
+                                                            isFavorite: false,
                                                             description: "Its Simple and elegant shape makes it perfect for those of you who want minimalist clothes.",
                                                             rating: 2,
                                                             reviews: 76) ]
