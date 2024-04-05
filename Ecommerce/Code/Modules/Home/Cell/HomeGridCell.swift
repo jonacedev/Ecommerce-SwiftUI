@@ -27,7 +27,7 @@ struct HomeGridCell: View {
                     .font(.subheadline)
                     .foregroundStyle(.gray)
              
-                Text(String.convertDoubleToString(product.price) + "€")
+                Text(String.convertDoubleToString(product.price) + "euro_symbol".localized)
                     .font(.headline.bold())
                     .padding(.top, 1)
                     .padding(.bottom, 10)

@@ -19,9 +19,7 @@ final class HomeViewModel: BaseViewModel {
 
     // MARK: - Private Functions
 
-    func onAppear() {
-       //getAllInfo()
-    }
+    func onAppear() { }
     
     func goToDetail(product: ProductModel) {
         wireframe.goToDetail(product: product)

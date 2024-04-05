@@ -31,7 +31,7 @@ struct CheckoutView: View {
                     
                     vwCheckoutDetails()
                     
-                    BaseButton(style: .primary, text: "Pay", action: {
+                    BaseButton(style: .primary, text: "checkout_pay_btn".localized, action: {
                         parentViewModel.loading = true
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                             parentViewModel.loading = false
@@ -58,7 +58,7 @@ struct CheckoutView: View {
     
     @ViewBuilder private func vwCheckoutDetails() -> some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("Shipping information")
+            Text("checkout_shipping_info".localized)
                 .font(.system(size: 18).bold())
                 .padding(.top, 10)
             
@@ -69,7 +69,7 @@ struct CheckoutView: View {
                     .frame(width: 50, height: 25)
                     .padding(.vertical, 15)
                     .padding(.leading, 15)
-                Text("**** **** **** 4137")
+                Text("checkout_visa_default".localized)
                 
                 Spacer()
                 
@@ -90,15 +90,15 @@ struct CheckoutView: View {
                     Text("Total (\(productsData.productsCart.count) items)")
                         .font(.subheadline)
                     Spacer()
-                    Text(String.convertDoubleToString(finalPrice) + "€")
+                    Text(String.convertDoubleToString(finalPrice) + "euro_symbol".localized)
                         .font(.subheadline)
                 }
                 
                 HStack {
-                    Text("Shipping fee")
+                    Text("checkout_shipping_fee".localized)
                         .font(.subheadline)
                     Spacer()
-                    Text(String.convertDoubleToString(shippingFee) + "€")
+                    Text(String.convertDoubleToString(shippingFee) + "euro_symbol".localized)
                         .font(.subheadline)
                 }
                 
@@ -109,10 +109,10 @@ struct CheckoutView: View {
                 }
                 
                 HStack {
-                    Text("Sub Total")
+                    Text("checkout_sub_total".localized)
                         .font(.headline)
                     Spacer()
-                    Text(String.convertDoubleToString(subTotal) + "€")
+                    Text(String.convertDoubleToString(subTotal) + "euro_symbol".localized)
                         .font(.headline)
                 }
             }
@@ -121,7 +121,7 @@ struct CheckoutView: View {
     
     @ViewBuilder private func vwNoResults() -> some View {
         HStack() {
-            Text("There is still nothing in the cart")
+            Text("checkout_empty_cart".localized)
                 .foregroundStyle(.white)
                 .font(.subheadline)
                 .padding(25)
@@ -138,7 +138,7 @@ struct CheckoutView: View {
     }
     
     func successAlert() {
-        parentViewModel.alert = BaseAlert.Model(description: "Order completed", buttonText1: "Accept", action1: {
+        parentViewModel.alert = BaseAlert.Model(description: "alert_success_order".localized, buttonText1: "alert_acept_title".localized, action1: {
             parentViewModel.alert = nil
         })
     }

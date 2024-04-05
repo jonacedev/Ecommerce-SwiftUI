@@ -33,14 +33,14 @@ struct CheckoutCell: View {
                     .font(.subheadline)
                     .foregroundStyle(.gray)
                 
-                Text("Size:" + " \(product.sizeSelected)".capitalized)
+                Text("checkout_size_title".localized + " \(product.sizeSelected)".capitalized)
                     .font(.subheadline)
                     .foregroundStyle(.gray)
                 
                 
                 HStack(alignment: .center, spacing: 10) {
                     
-                    Text(String.convertDoubleToString(finalPrice) + "€")
+                    Text(String.convertDoubleToString(finalPrice) + "euro_symbol".localized)
                         .font(.system(size: 17).bold())
                         .padding(.top, 10)
                     

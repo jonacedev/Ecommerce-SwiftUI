@@ -1,13 +1,52 @@
 
 // Sections App
 
+// - App
+
+"app_title" = "Ecommerce";
+
+
 // - Home
 
 "greeting_title" = "Hello, Welcome 👋🏼";
 "default_name_title" = "Jonathan Onrubia";
-
 "searchbar_placeholder" = "Search Clothes";
 
-// Product Detail
+
+// - Product Detail
 
 "product_detail_reviews_text" = "reviews";
+"product_detail_choose_size" = "Choose Size";
+"product_detail_add_to_cart" = "Add to cart | ";
+
+
+// - Checkout
+
+"checkout_size_title" = "Size:";
+"checkout_pay_btn" = "Pay";
+"checkout_shipping_fee" = "Shipping fee";
+"checkout_sub_total" = "Sub Total";
+"checkout_empty_cart" = "There is still nothing in the cart";
+"checkout_shipping_info" = "Shipping information";
+"checkout_visa_default" = "**** **** **** 4137";
+
+
+// - Symbols
+
+"euro_symbol" = "€";
+
+
+// - Alert
+
+"alert_add_to_cart_title" = "Product added to cart";
+"alert_acept_title" = "Accept";
+
+"alert_success_order" = "Order completed";
+
+
+// - TabBar
+
+"tabbar_home_title" = "Home";
+"tabbar_favorites_title" = "Favorites";
+"tabbar_checkout_title" = "Checkout";
+

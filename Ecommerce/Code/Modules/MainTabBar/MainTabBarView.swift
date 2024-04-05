@@ -43,9 +43,9 @@ struct MainTabBarView: View {
 
     @ViewBuilder private func tabBar() -> some View {
         BaseTabBar(tabSelected: $viewModel.tabSelection, items: [
-            BaseTabBar.TabItem(text: "Home", image: "home"),
-            BaseTabBar.TabItem(text: "Favorites", image: "heart"),
-            BaseTabBar.TabItem(text: "Checkout", image: "bag_empty")
+            BaseTabBar.TabItem(text: "tabbar_home_title".localized, image: "home"),
+            BaseTabBar.TabItem(text: "tabbar_favorites_title".localized, image: "heart"),
+            BaseTabBar.TabItem(text: "tabbar_checkout_title".localized, image: "bag_empty")
         ])
         .onAppear {
             viewModel.readyTab()

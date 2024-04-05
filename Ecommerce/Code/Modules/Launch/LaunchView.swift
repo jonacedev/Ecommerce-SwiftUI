@@ -18,7 +18,7 @@ struct LaunchView: View {
                 .ignoresSafeArea()
             
             VStack {
-                Text("Ecommerce")
+                Text("app_title".localized)
                     .foregroundStyle(.white)
                     .font(.custom("Verdana", size: 30).bold())
                     .padding(.bottom, 25)

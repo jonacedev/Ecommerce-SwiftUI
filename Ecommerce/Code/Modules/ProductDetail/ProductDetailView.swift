@@ -39,7 +39,7 @@ struct ProductDetailView: View {
                     }
                     .padding(.top, 10)
                     
-                    let btnText = "Add to cart | " + String.convertDoubleToString(finalPrice) + "€"
+                    let btnText = "product_detail_add_to_cart".localized + String.convertDoubleToString(finalPrice) + "€"
                     BaseButton(style: .primary, text: btnText, action: {
                         
                         let newProduct = ProductCartModel(productId: viewModel.product?.id ?? 0, finalPrice: finalPrice, amount: amountItems, sizeSelected: sizeSelected)
@@ -126,7 +126,7 @@ struct ProductDetailView: View {
     
     
     @ViewBuilder private func vwSizeSelection() -> some View {
-        Text("Choose Size")
+        Text("product_detail_choose_size".localized)
             .font(.system(size: 16).bold())
             .foregroundStyle(Color.primaryApp)
             .padding(.vertical, 10)
