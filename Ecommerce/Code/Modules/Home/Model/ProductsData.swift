@@ -62,7 +62,11 @@ class ProductsData: ObservableObject {
                                                             isFavorite: true,
                                                             description: "Its Simple and elegant shape makes it perfect for those of you who want minimalist clothes.",
                                                             rating: 2,
-                                                            reviews: 76)]
+                                                            reviews: 76) ]
+    
+    func favoritesProducts() -> [ProductModel] {
+        products.filter({ $0.isFavorite == true })
+    }
     
     
     func addProductToCart(product: ProductCartModel) {

@@ -22,4 +22,8 @@ final class FavoritesViewModel: BaseViewModel {
     func onAppear() {
        //getAllInfo()
     }
+    
+    func goToDetail(product: ProductModel) {
+        wireframe.goToDetail(product: product)
+    }
 }

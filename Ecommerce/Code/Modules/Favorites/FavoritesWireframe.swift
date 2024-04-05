@@ -37,7 +37,12 @@ final class FavoritesWireframe: BaseWireframe {
         view
     }
     
-
+    func goToDetail(product: ProductModel) {
+        let productWireframe = ProductDetailWireframe(navigator: navigator)
+        productWireframe.product = product
+        productWireframe.push()
+    }
+    
 }
 
 

@@ -311,7 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				AB7FABF42BBE378C00B97DC3 /* MainTabBar */,
-				AB7FABDB2BBC639A00B97DC3 /* Profile */,
 				AB7FABDA2BBC639300B97DC3 /* Favorites */,
 				AB7FABD92BBC638B00B97DC3 /* Checkout */,
 				AB7FABED2BBCADC000B97DC3 /* ProductDetail */,
@@ -397,13 +396,6 @@
 				AB7FABFD2BBE38B800B97DC3 /* FavoritesWireframe.swift */,
 			);
 			path = Favorites;
-			sourceTree = "<group>";
-		};
-		AB7FABDB2BBC639A00B97DC3 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		AB7FABE22BBC92EE00B97DC3 /* Components */ = {
