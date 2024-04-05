@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB181D772BBF410200BD002E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AB181D762BBF410200BD002E /* Alamofire */; };
 		AB181D792BBFF27900BD002E /* Number+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB181D782BBFF27900BD002E /* Number+Utils.swift */; };
 		AB7FAB6D2BBC61D200B97DC3 /* certificate in Resources */ = {isa = PBXBuildFile; fileRef = AB7FAB6C2BBC61D200B97DC3 /* certificate */; };
 		AB7FAB722BBC61D200B97DC3 /* BaseActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB712BBC61D200B97DC3 /* BaseActions.swift */; };
 		AB7FAB742BBC61D200B97DC3 /* BaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB732BBC61D200B97DC3 /* BaseAlert.swift */; };
-		AB7FAB762BBC61D200B97DC3 /* BaseApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB752BBC61D200B97DC3 /* BaseApiClient.swift */; };
 		AB7FAB782BBC61D200B97DC3 /* BaseBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB772BBC61D200B97DC3 /* BaseBlur.swift */; };
 		AB7FAB7A2BBC61D200B97DC3 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB792BBC61D200B97DC3 /* BaseButton.swift */; };
 		AB7FAB7C2BBC61D200B97DC3 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB7B2BBC61D200B97DC3 /* BaseError.swift */; };
@@ -24,12 +22,8 @@
 		AB7FAB882BBC61D200B97DC3 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB872BBC61D200B97DC3 /* BaseWireframe.swift */; };
 		AB7FAB8B2BBC61D200B97DC3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB8A2BBC61D200B97DC3 /* Environment.swift */; };
 		AB7FAB8D2BBC61D200B97DC3 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB7FAB8C2BBC61D200B97DC3 /* Config.plist */; };
-		AB7FAB902BBC61D200B97DC3 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB8F2BBC61D200B97DC3 /* ApiClient.swift */; };
-		AB7FAB932BBC61D200B97DC3 /* BiometricManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB922BBC61D200B97DC3 /* BiometricManager.swift */; };
 		AB7FAB952BBC61D200B97DC3 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB942BBC61D200B97DC3 /* DeviceInfo.swift */; };
-		AB7FAB972BBC61D200B97DC3 /* SecuredCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB962BBC61D200B97DC3 /* SecuredCache.swift */; };
 		AB7FAB992BBC61D200B97DC3 /* UserDefaultsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB982BBC61D200B97DC3 /* UserDefaultsCache.swift */; };
-		AB7FAB9C2BBC61D200B97DC3 /* Alamofire+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB9B2BBC61D200B97DC3 /* Alamofire+Utils.swift */; };
 		AB7FAB9E2BBC61D200B97DC3 /* Strings+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB9D2BBC61D200B97DC3 /* Strings+Utils.swift */; };
 		AB7FABA02BBC61D200B97DC3 /* SwiftUI+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB9F2BBC61D200B97DC3 /* SwiftUI+Utils.swift */; };
 		AB7FABA22BBC61D200B97DC3 /* UIApplication+Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FABA12BBC61D200B97DC3 /* UIApplication+Window.swift */; };
@@ -46,7 +40,6 @@
 		AB7FABC02BBC61D200B97DC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FABBF2BBC61D200B97DC3 /* AppDelegate.swift */; };
 		AB7FABC62BBC61D300B97DC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB7FABC52BBC61D300B97DC3 /* Assets.xcassets */; };
 		AB7FABC92BBC61D300B97DC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB7FABC82BBC61D300B97DC3 /* Preview Assets.xcassets */; };
-		AB7FABD72BBC631500B97DC3 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = AB7FABD62BBC631500B97DC3 /* KeychainAccess */; };
 		AB7FABDF2BBC65D400B97DC3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FABDC2BBC65D400B97DC3 /* HomeView.swift */; };
 		AB7FABE02BBC65D400B97DC3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FABDD2BBC65D400B97DC3 /* HomeViewModel.swift */; };
 		AB7FABE12BBC65D400B97DC3 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FABDE2BBC65D400B97DC3 /* HomeWireframe.swift */; };
@@ -92,7 +85,6 @@
 		AB7FAB6C2BBC61D200B97DC3 /* certificate */ = {isa = PBXFileReference; lastKnownFileType = text; path = certificate; sourceTree = "<group>"; };
 		AB7FAB712BBC61D200B97DC3 /* BaseActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseActions.swift; sourceTree = "<group>"; };
 		AB7FAB732BBC61D200B97DC3 /* BaseAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlert.swift; sourceTree = "<group>"; };
-		AB7FAB752BBC61D200B97DC3 /* BaseApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiClient.swift; sourceTree = "<group>"; };
 		AB7FAB772BBC61D200B97DC3 /* BaseBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBlur.swift; sourceTree = "<group>"; };
 		AB7FAB792BBC61D200B97DC3 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		AB7FAB7B2BBC61D200B97DC3 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
@@ -104,12 +96,8 @@
 		AB7FAB872BBC61D200B97DC3 /* BaseWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
 		AB7FAB8A2BBC61D200B97DC3 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		AB7FAB8C2BBC61D200B97DC3 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
-		AB7FAB8F2BBC61D200B97DC3 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
-		AB7FAB922BBC61D200B97DC3 /* BiometricManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricManager.swift; sourceTree = "<group>"; };
 		AB7FAB942BBC61D200B97DC3 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
-		AB7FAB962BBC61D200B97DC3 /* SecuredCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecuredCache.swift; sourceTree = "<group>"; };
 		AB7FAB982BBC61D200B97DC3 /* UserDefaultsCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsCache.swift; sourceTree = "<group>"; };
-		AB7FAB9B2BBC61D200B97DC3 /* Alamofire+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire+Utils.swift"; sourceTree = "<group>"; };
 		AB7FAB9D2BBC61D200B97DC3 /* Strings+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Utils.swift"; sourceTree = "<group>"; };
 		AB7FAB9F2BBC61D200B97DC3 /* SwiftUI+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Utils.swift"; sourceTree = "<group>"; };
 		AB7FABA12BBC61D200B97DC3 /* UIApplication+Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Window.swift"; sourceTree = "<group>"; };
@@ -158,8 +146,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB7FABD72BBC631500B97DC3 /* KeychainAccess in Frameworks */,
-				AB181D772BBF410200BD002E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +204,6 @@
 			children = (
 				AB7FAB6F2BBC61D200B97DC3 /* Common */,
 				AB7FAB892BBC61D200B97DC3 /* Config */,
-				AB7FAB8E2BBC61D200B97DC3 /* Api */,
 				AB7FABAC2BBC61D200B97DC3 /* Modules */,
 			);
 			path = Code;
@@ -240,7 +225,6 @@
 			children = (
 				AB7FAB712BBC61D200B97DC3 /* BaseActions.swift */,
 				AB7FAB732BBC61D200B97DC3 /* BaseAlert.swift */,
-				AB7FAB752BBC61D200B97DC3 /* BaseApiClient.swift */,
 				AB7FAB772BBC61D200B97DC3 /* BaseBlur.swift */,
 				AB7FAB792BBC61D200B97DC3 /* BaseButton.swift */,
 				AB7FAB7B2BBC61D200B97DC3 /* BaseError.swift */,
@@ -264,21 +248,11 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		AB7FAB8E2BBC61D200B97DC3 /* Api */ = {
-			isa = PBXGroup;
-			children = (
-				AB7FAB8F2BBC61D200B97DC3 /* ApiClient.swift */,
-			);
-			path = Api;
-			sourceTree = "<group>";
-		};
 		AB7FAB912BBC61D200B97DC3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				AB7FABE22BBC92EE00B97DC3 /* Components */,
-				AB7FAB922BBC61D200B97DC3 /* BiometricManager.swift */,
 				AB7FAB942BBC61D200B97DC3 /* DeviceInfo.swift */,
-				AB7FAB962BBC61D200B97DC3 /* SecuredCache.swift */,
 				AB7FAB982BBC61D200B97DC3 /* UserDefaultsCache.swift */,
 			);
 			path = Utils;
@@ -287,7 +261,6 @@
 		AB7FAB9A2BBC61D200B97DC3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				AB7FAB9B2BBC61D200B97DC3 /* Alamofire+Utils.swift */,
 				AB7FAB9D2BBC61D200B97DC3 /* Strings+Utils.swift */,
 				AB7FAB9F2BBC61D200B97DC3 /* SwiftUI+Utils.swift */,
 				AB7FABA12BBC61D200B97DC3 /* UIApplication+Window.swift */,
@@ -486,8 +459,6 @@
 			);
 			name = Ecommerce;
 			packageProductDependencies = (
-				AB7FABD62BBC631500B97DC3 /* KeychainAccess */,
-				AB181D762BBF410200BD002E /* Alamofire */,
 			);
 			productName = Ecommerce;
 			productReference = AB7FAB672BBC61D200B97DC3 /* Ecommerce.app */;
@@ -519,8 +490,6 @@
 			);
 			mainGroup = AB7FAB5E2BBC61D200B97DC3;
 			packageReferences = (
-				AB7FABD52BBC631500B97DC3 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
-				AB181D752BBF410200BD002E /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = AB7FAB682BBC61D200B97DC3 /* Products */;
 			projectDirPath = "";
@@ -567,13 +536,11 @@
 				AB7FABF92BBE37A700B97DC3 /* MainTabBarViewModel.swift in Sources */,
 				AB7FABFA2BBE37A700B97DC3 /* MainTabBarWireframe.swift in Sources */,
 				AB7FAB782BBC61D200B97DC3 /* BaseBlur.swift in Sources */,
-				AB7FAB9C2BBC61D200B97DC3 /* Alamofire+Utils.swift in Sources */,
 				AB181D792BBFF27900BD002E /* Number+Utils.swift in Sources */,
 				AB7FAB7E2BBC61D200B97DC3 /* BaseLoader.swift in Sources */,
 				AB7FABA92BBC61D200B97DC3 /* Fonts+Styles.swift in Sources */,
 				AB7FABE92BBC970C00B97DC3 /* HomeGridCell.swift in Sources */,
 				AB7FABEC2BBC988500B97DC3 /* ProductModel.swift in Sources */,
-				AB7FAB972BBC61D200B97DC3 /* SecuredCache.swift in Sources */,
 				AB7FAB952BBC61D200B97DC3 /* DeviceInfo.swift in Sources */,
 				AB7FABA02BBC61D200B97DC3 /* SwiftUI+Utils.swift in Sources */,
 				AB7FAC082BBE39EB00B97DC3 /* BaseTabBar.swift in Sources */,
@@ -588,13 +555,10 @@
 				AB7FABA22BBC61D200B97DC3 /* UIApplication+Window.swift in Sources */,
 				AB7FABE42BBC931900B97DC3 /* CustomSearchBar.swift in Sources */,
 				AB7FABAB2BBC61D200B97DC3 /* Styles.swift in Sources */,
-				AB7FAB902BBC61D200B97DC3 /* ApiClient.swift in Sources */,
 				AB7FABC02BBC61D200B97DC3 /* AppDelegate.swift in Sources */,
-				AB7FAB932BBC61D200B97DC3 /* BiometricManager.swift in Sources */,
 				AB7FAB842BBC61D200B97DC3 /* BaseViewController.swift in Sources */,
 				AB7FAB8B2BBC61D200B97DC3 /* Environment.swift in Sources */,
 				AB7FABE62BBC942600B97DC3 /* IconButton.swift in Sources */,
-				AB7FAB762BBC61D200B97DC3 /* BaseApiClient.swift in Sources */,
 				AB7FABDF2BBC65D400B97DC3 /* HomeView.swift in Sources */,
 				AB7FABE02BBC65D400B97DC3 /* HomeViewModel.swift in Sources */,
 				AB7FABE12BBC65D400B97DC3 /* HomeWireframe.swift in Sources */,
@@ -844,38 +808,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		AB181D752BBF410200BD002E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.9.1;
-			};
-		};
-		AB7FABD52BBC631500B97DC3 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		AB181D762BBF410200BD002E /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AB181D752BBF410200BD002E /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		AB7FABD62BBC631500B97DC3 /* KeychainAccess */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AB7FABD52BBC631500B97DC3 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
-			productName = KeychainAccess;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AB7FAB5F2BBC61D200B97DC3 /* Project object */;
 }

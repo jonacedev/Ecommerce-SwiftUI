@@ -10,12 +10,7 @@ import Foundation
 enum UserDefaultsCacheKey: String {
     case keyIsFirstTime = "isFirstTime"
     case keyRememberUser = "rememberUser"
-    case biometricIDAccessState = "biometricIDAccessState"
-    case shouldShowBiometricIDActivation = "shouldShowBiometricsIDActivation"
-    case keyIsFirstTimeBiometric = "isFirstTimeBiometric"
-    case keyAccessBiometricLogin = "accessBiometricLogin"
    
-
     var key: String { return rawValue }
 }
 
@@ -85,32 +80,5 @@ extension UserDefaultsCache {
     var shouldRememberUser: Bool {
         get { return retrieve(forKey: .keyRememberUser) ?? false }
         set { persist(newValue, forKey: .keyRememberUser) }
-    }
-    
-    func biometricStatusIsActive() -> Bool {
-        return biometricIDAccesState == .active
-    }
-    
-    var biometricIDAccesState: BiometricIDAccessState {
-        get { return retrieve(forKey: .biometricIDAccessState) ?? .inactive }
-        set { persist(newValue, forKey: .biometricIDAccessState) }
-    }
-    
-    // Should show active bimetric
-    var shouldShowBiometricIDActivation: Bool {
-        get { return retrieve(forKey: .shouldShowBiometricIDActivation) ?? true }
-        set { persist(newValue, forKey: .shouldShowBiometricIDActivation) }
-    }
-    
-    // Is First Time init App show Landing
-    var isFirstTimeBiometric: Bool {
-        get { return retrieve(forKey: .keyIsFirstTimeBiometric) ?? true }
-        set { persist(newValue, forKey: .keyIsFirstTimeBiometric) }
-    }
-    
-    // Save is access with biometric Login
-    var accessBiometricLogin: Bool {
-        get { return retrieve(forKey: .keyAccessBiometricLogin) ?? false }
-        set { persist(newValue, forKey: .keyAccessBiometricLogin) }
     }
 }
