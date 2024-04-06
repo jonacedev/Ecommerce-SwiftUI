@@ -63,33 +63,13 @@ struct CheckoutView: View {
                 .font(.system(size: 18).bold())
                 .padding(.top, 10)
             
-            DropDownPicker(
+            BaseDropDown(
                 selection: $itemSelected,
                 options: [
                     "checkout_visa_default".localized,
                     "checkout_visa_default2".localized
                 ]
             )
-            
-//            HStack() {
-//                Image("visa")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 50, height: 25)
-//                    .padding(.vertical, 15)
-//                    .padding(.leading, 15)
-//                Text("checkout_visa_default".localized)
-//                
-//                Spacer()
-//                
-//                Image("arrow_down")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 20, height: 20)
-//                    .padding(14)
-//            }
-//            .background(Color.gray.opacity(0.2))
-//            .clipShape(RoundedRectangle(cornerRadius: 8))
             
             Group {
                 let finalPrice = productsData.productsCart.compactMap{$0.finalPrice}.reduce(0, +)

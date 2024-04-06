@@ -6,7 +6,7 @@ enum DropDownPickerState {
     case bottom
 }
 
-struct DropDownPicker: View {
+struct BaseDropDown: View {
     
     @Binding var selection: String?
     var state: DropDownPickerState = .bottom
@@ -90,7 +90,7 @@ struct DropDownPicker: View {
                 }
                 .foregroundStyle(selection == option ? Color.primary : Color.gray)
                 .animation(.none, value: selection)
-                .frame(height: 40)
+                .frame(height: 50)
                 .contentShape(.rect)
                 .onTapGesture {
                     withAnimation(.snappy) {
@@ -106,5 +106,5 @@ struct DropDownPicker: View {
 }
 
 #Preview {
-    DropDownPicker(selection: .constant("Option 1"), options: ["Option 1", "Option 2", "Option 3"])
+    BaseDropDown(selection: .constant("Option 1"), options: ["Option 1", "Option 2", "Option 3"])
 }

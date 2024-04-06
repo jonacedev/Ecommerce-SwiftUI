@@ -14,8 +14,8 @@ class ProductsData: ObservableObject {
     private init() {}
     
     @Published var productsCart: [ProductCartModel] = [
-        ProductCartModel(productId: 0, 
-                         finalPrice: 209.99,
+        ProductCartModel(productId: 0,
+                         finalPrice: 29.99,
                          amount: 1,
                          sizeSelected: .s)]
     
