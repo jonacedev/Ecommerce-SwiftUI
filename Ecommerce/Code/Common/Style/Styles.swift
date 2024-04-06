@@ -1,6 +1,5 @@
 //
 //  Styles.swift
-//  PokeApp
 //
 //  Created by Jonathan Onrubia Solis on 21/3/24.
 //

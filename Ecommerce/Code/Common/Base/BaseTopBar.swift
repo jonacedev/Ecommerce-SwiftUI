@@ -1,6 +1,5 @@
 //
 //  BaseTopBar.swift
-//  PokeApp
 //
 //  Created by Jonathan Miguel Onrubia Solis on 1/4/24.
 //

@@ -1,6 +1,5 @@
 //
 //  DeviceInfo.swift
-//  PokeApp
 //
 //  Created by Jonathan Onrubia Solis on 20/3/24.
 //
