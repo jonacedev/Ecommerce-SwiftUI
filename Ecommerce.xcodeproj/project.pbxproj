@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB181D792BBFF27900BD002E /* Number+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB181D782BBFF27900BD002E /* Number+Utils.swift */; };
+		AB181D7B2BC1DD9800BD002E /* BaseDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB181D7A2BC1DD9800BD002E /* BaseDropDown.swift */; };
 		AB7FAB722BBC61D200B97DC3 /* BaseActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB712BBC61D200B97DC3 /* BaseActions.swift */; };
 		AB7FAB742BBC61D200B97DC3 /* BaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB732BBC61D200B97DC3 /* BaseAlert.swift */; };
 		AB7FAB782BBC61D200B97DC3 /* BaseBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB772BBC61D200B97DC3 /* BaseBlur.swift */; };
@@ -80,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		AB181D782BBFF27900BD002E /* Number+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Utils.swift"; sourceTree = "<group>"; };
+		AB181D7A2BC1DD9800BD002E /* BaseDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDropDown.swift; sourceTree = "<group>"; };
 		AB7FAB672BBC61D200B97DC3 /* Ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ecommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7FAB712BBC61D200B97DC3 /* BaseActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseActions.swift; sourceTree = "<group>"; };
 		AB7FAB732BBC61D200B97DC3 /* BaseAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlert.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				AB7FAB852BBC61D200B97DC3 /* BaseViewModel.swift */,
 				AB7FAB872BBC61D200B97DC3 /* BaseWireframe.swift */,
 				AB7FAC072BBE39EB00B97DC3 /* BaseTabBar.swift */,
+				AB181D7A2BC1DD9800BD002E /* BaseDropDown.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				AB7FABF82BBE37A700B97DC3 /* MainTabBarView.swift in Sources */,
 				AB7FABF92BBE37A700B97DC3 /* MainTabBarViewModel.swift in Sources */,
 				AB7FABFA2BBE37A700B97DC3 /* MainTabBarWireframe.swift in Sources */,
+				AB181D7B2BC1DD9800BD002E /* BaseDropDown.swift in Sources */,
 				AB7FAB782BBC61D200B97DC3 /* BaseBlur.swift in Sources */,
 				AB181D792BBFF27900BD002E /* Number+Utils.swift in Sources */,
 				AB7FAB7E2BBC61D200B97DC3 /* BaseLoader.swift in Sources */,

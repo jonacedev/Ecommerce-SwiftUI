@@ -8,6 +8,7 @@ struct CheckoutView: View {
     @StateObject var viewModel: CheckoutViewModel
     @ObservedObject var productsData = ProductsData.shared
     @State var shippingFee: Double = 3.99
+    @State var itemSelected: String? = "checkout_visa_default".localized
     
     var body: some View {
         BaseView(content: content, vm: viewModel)
@@ -38,7 +39,7 @@ struct CheckoutView: View {
                             productsData.productsCart.removeAll()
                             successAlert()
                         })
-                       
+                        
                     })
                     .listRowSeparator(.hidden)
                     .clipShape(Capsule())
@@ -47,7 +48,7 @@ struct CheckoutView: View {
                     .padding(.bottom, 70)
                     
                 } else {
-                   vwNoResults()
+                    vwNoResults()
                 }
             }
             .listRowBackground(Color.clear)
@@ -62,25 +63,33 @@ struct CheckoutView: View {
                 .font(.system(size: 18).bold())
                 .padding(.top, 10)
             
-            HStack() {
-                Image("visa")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 25)
-                    .padding(.vertical, 15)
-                    .padding(.leading, 15)
-                Text("checkout_visa_default".localized)
-                
-                Spacer()
-                
-                Image("arrow_down")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 20, height: 20)
-                    .padding(14)
-            }
-            .background(Color.gray.opacity(0.2))
-            .clipShape(RoundedRectangle(cornerRadius: 8))
+            DropDownPicker(
+                selection: $itemSelected,
+                options: [
+                    "checkout_visa_default".localized,
+                    "checkout_visa_default2".localized
+                ]
+            )
+            
+//            HStack() {
+//                Image("visa")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 50, height: 25)
+//                    .padding(.vertical, 15)
+//                    .padding(.leading, 15)
+//                Text("checkout_visa_default".localized)
+//                
+//                Spacer()
+//                
+//                Image("arrow_down")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 20, height: 20)
+//                    .padding(14)
+//            }
+//            .background(Color.gray.opacity(0.2))
+//            .clipShape(RoundedRectangle(cornerRadius: 8))
             
             Group {
                 let finalPrice = productsData.productsCart.compactMap{$0.finalPrice}.reduce(0, +)
@@ -104,8 +113,8 @@ struct CheckoutView: View {
                 
                 VStack {
                     Rectangle()
-                           .frame(height: 1)
-                           .foregroundColor(Color.gray)
+                        .frame(height: 1)
+                        .foregroundColor(Color.gray)
                 }
                 
                 HStack {

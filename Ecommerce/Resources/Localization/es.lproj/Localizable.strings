@@ -34,6 +34,7 @@
 "checkout_empty_cart" = "There is still nothing in the cart";
 "checkout_shipping_info" = "Shipping information";
 "checkout_visa_default" = "**** **** **** 4137";
+"checkout_visa_default2" = "**** **** **** 3727";
 
 
 // - Symbols
