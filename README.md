@@ -2,6 +2,5 @@
 Ecommerce App
 SwiftUI - MVVM
 
-
-https://github.com/jonacedev/Ecommerce-SwiftUI/assets/111474006/7c8e61bd-22af-446d-9d11-d476db595ac4
+https://github.com/jonacedev/Ecommerce-SwiftUI/assets/111474006/7387f8ce-9956-4924-a8d9-d127a20a684e
 
