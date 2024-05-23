@@ -4,20 +4,19 @@ import SwiftUI
 struct HomeView: View {
     
     @StateObject var viewModel: HomeViewModel
-    @State var searchText: String = ""
     @ObservedObject var productsData = ProductsData.shared
     
     var body: some View {
         BaseView(content: content, vm: viewModel)
     }
-
+    
     @ViewBuilder private func content() -> some View {
         VStack {
             vwHeader()
             
             VStack {
                 HStack(spacing: 10) {
-                    CustomSearchBar(text: $searchText, placeholder: "searchbar_placeholder".localized)
+                    CustomSearchBar(text: $viewModel.searchText, placeholder: "searchbar_placeholder".localized)
                     IconButton(image: "filter", size: .big, action: { })
                 }
             }
@@ -49,30 +48,29 @@ struct HomeView: View {
     @ViewBuilder private func vwList() -> some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.fixed(170)), GridItem(.fixed(170))]) {
-                ForEach(0..<filteredResults.count, id: \.self) { index in
-                    HomeGridCell(product: filteredResults[index], favoritePressed: { favorite in
-                        if let idx = productsData.products.firstIndex(where: { $0.id == filteredResults[index].id }) {
-                            productsData.products[idx].isFavorite = favorite
+                ForEach(filteredResults, id: \.id) { product in
+                    HomeGridCell(product: product, favoritePressed: {
+                        if let idx = productsData.products.firstIndex(where: { $0.id == product.id }) {
+                            productsData.products[idx].isFavorite.toggle()
                         }
-                   })
-                   .onTapGesture {
-                       let product = filteredResults[index]
-                       viewModel.goDetail(product: product)
-                   }
-               }
-           }
+                    })
+                    .onTapGesture {
+                        viewModel.goDetail(product: product)
+                    }
+                }
+            }
             .padding(.bottom, 70)
-       }
+        }
         .scrollIndicators(.hidden)
         .padding(.horizontal, 20)
     }
     
     
     var filteredResults: [ProductModel] {
-        if searchText.isEmpty {
+        if viewModel.searchText.isEmpty {
             return productsData.products
         } else {
-            return productsData.products.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
+            return productsData.products.filter { $0.title.localizedCaseInsensitiveContains(viewModel.searchText) }
         }
     }
     

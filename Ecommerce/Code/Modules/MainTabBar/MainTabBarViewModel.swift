@@ -11,12 +11,6 @@ enum TabSelection: Int {
 }
 
 final class MainTabBarViewModel: BaseViewModel {
-    
-    private var navigationManager: any NavigationManagerProtocol
-    
-    init(navigationManager: any NavigationManagerProtocol) {
-        self.navigationManager = navigationManager
-    }
 
     // MARK: - Properties
     
@@ -24,6 +18,11 @@ final class MainTabBarViewModel: BaseViewModel {
     lazy var vwHome: HomeView = HomeWireframe(navigationManager: navigationManager).view
     lazy var vwFavorites: FavoritesView = FavoritesWireframe(navigationManager: navigationManager).view
     lazy var vwCheckout: CheckoutView = CheckoutWireframe(navigationManager: navigationManager).view
+    private var navigationManager: any NavigationManagerProtocol
+    
+    init(navigationManager: any NavigationManagerProtocol) {
+        self.navigationManager = navigationManager
+    }
 
     // MARK: - Private Functions
 

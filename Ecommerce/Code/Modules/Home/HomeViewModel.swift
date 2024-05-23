@@ -8,6 +8,7 @@ final class HomeViewModel: BaseViewModel {
     
     // MARK: - Properties
     
+    @Published var searchText: String = ""
     private var navigationManager: any NavigationManagerProtocol
     
     init(navigationManager: any NavigationManagerProtocol) {

@@ -15,7 +15,7 @@ struct FavoritesView: View {
             if !productsData.favoritesProducts().isEmpty {
                 LazyVGrid(columns: [GridItem(.fixed(170)), GridItem(.fixed(170))]) {
                     ForEach(0..<productsData.favoritesProducts().count, id: \.self) { index in
-                        HomeGridCell(product: productsData.favoritesProducts()[index], favoritePressed: { favorite in
+                        HomeGridCell(product: productsData.favoritesProducts()[index], favoritePressed: {
                             removeFromFavorites(favIndex: index)
                        })
                        .onTapGesture {
