@@ -8,9 +8,9 @@ final class HomeViewModel: BaseViewModel {
     
     // MARK: - Properties
     
-    private var navigationManager: NavigationManager?
-
-    init(navigationManager: NavigationManager?) {
+    private var navigationManager: any NavigationManagerProtocol
+    
+    init(navigationManager: any NavigationManagerProtocol) {
         self.navigationManager = navigationManager
     }
 
@@ -19,6 +19,6 @@ final class HomeViewModel: BaseViewModel {
     func onAppear() { }
     
     func goDetail(product: ProductModel) {
-        navigationManager?.push(.productDetail(product: product))
+        navigationManager.push(.productDetail(product: product))
     }
 }

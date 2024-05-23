@@ -10,9 +10,9 @@ final class ProductDetailViewModel: BaseViewModel {
     
     @Published var product: ProductModel?
     @Published var isSelected: ClotheSize = .s
-    private var navigationManager: NavigationManager?
+    private var navigationManager: any NavigationManagerProtocol
     
-    init(navigationManager: NavigationManager?) {
+    init(navigationManager: any NavigationManagerProtocol) {
         self.navigationManager = navigationManager
     }
 
@@ -28,6 +28,6 @@ final class ProductDetailViewModel: BaseViewModel {
     }
     
     func goBack() {
-        navigationManager?.popToLast()
+        navigationManager.popToLast()
     }
 }

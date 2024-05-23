@@ -79,5 +79,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeWireframe(navigationManager: nil).preview()
+    HomeWireframe(navigationManager: NavigationManager()).preview()
 }

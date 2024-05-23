@@ -8,9 +8,9 @@ struct MainTabBarView: View {
     var body: some View {
         BaseView(content: content, vm: viewModel)
     }
-
+    
     @ViewBuilder private func content() -> some View {
-
+        
         ZStack(alignment: .bottom) {
             TabView(selection: $viewModel.tabSelection) {
                 viewModel.vwHome
@@ -26,21 +26,21 @@ struct MainTabBarView: View {
                     .transition(.move(edge: .trailing))
                     .environmentObject(viewModel)
             }
-    
+            
             tabBar()
         }
         .onAppear{
-           hideDefaultTabBar()
+            hideDefaultTabBar()
         }
         .animation(.default, value: viewModel.tabSelection)
         .ignoresSafeArea(edges: .bottom)
-            
+        
     }
     
     func hideDefaultTabBar() {
         UITabBar.appearance().isHidden = true
     }
-
+    
     @ViewBuilder private func tabBar() -> some View {
         BaseTabBar(tabSelected: $viewModel.tabSelection, items: [
             BaseTabBar.TabItem(text: "tabbar_home_title".localized, image: "home"),
@@ -54,5 +54,5 @@ struct MainTabBarView: View {
 }
 
 #Preview {
-    MainTabBarWireframe(navigationManager: nil).preview()
+    MainTabBarWireframe(navigationManager: NavigationManager()).preview()
 }

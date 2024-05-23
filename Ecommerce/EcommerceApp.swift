@@ -10,7 +10,6 @@ import SwiftUI
 
 @main
 struct EcommerceApp: App {
-    
     @StateObject private var navigationManager = NavigationManager()
     
     var body: some Scene {

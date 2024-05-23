@@ -57,5 +57,5 @@ struct FavoritesView: View {
 }
 
 #Preview {
-    FavoritesWireframe(navigationManager: nil).preview()
+    FavoritesWireframe(navigationManager: NavigationManager()).preview()
 }

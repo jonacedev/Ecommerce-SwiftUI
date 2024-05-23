@@ -6,9 +6,9 @@ import Foundation
 
 final class FavoritesViewModel: BaseViewModel {
 
-    private var navigationManager: NavigationManager?
+    private var navigationManager: any NavigationManagerProtocol
     
-    init(navigationManager: NavigationManager?) {
+    init(navigationManager: any NavigationManagerProtocol) {
         self.navigationManager = navigationManager
     }
 
@@ -17,6 +17,6 @@ final class FavoritesViewModel: BaseViewModel {
     func onAppear() { }
     
     func goDetail(product: ProductModel) {
-        navigationManager?.push(.productDetail(product: product))
+        navigationManager.push(.productDetail(product: product))
     }
 }

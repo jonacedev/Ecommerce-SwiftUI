@@ -35,5 +35,5 @@ struct LaunchView: View {
 }
 
 #Preview {
-    LaunchWireframe(navigationManager: nil).preview()
+    LaunchWireframe(navigationManager: NavigationManager()).preview()
 }
