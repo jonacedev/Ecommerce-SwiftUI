@@ -13,6 +13,7 @@
 		AB1CE2E02BFF9C7F00364699 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CE2DF2BFF9C7F00364699 /* NavigationManager.swift */; };
 		AB1CE2E42BFF9CA800364699 /* RootNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CE2E32BFF9CA800364699 /* RootNavigationView.swift */; };
 		AB1CE2E62BFFD14500364699 /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CE2E52BFFD14500364699 /* DestinationView.swift */; };
+		AB1CE2E82BFFD9F500364699 /* NavigationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CE2E72BFFD9F500364699 /* NavigationManagerProtocol.swift */; };
 		AB7FAB722BBC61D200B97DC3 /* BaseActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB712BBC61D200B97DC3 /* BaseActions.swift */; };
 		AB7FAB742BBC61D200B97DC3 /* BaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB732BBC61D200B97DC3 /* BaseAlert.swift */; };
 		AB7FAB782BBC61D200B97DC3 /* BaseBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FAB772BBC61D200B97DC3 /* BaseBlur.swift */; };
@@ -87,6 +88,7 @@
 		AB1CE2DF2BFF9C7F00364699 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		AB1CE2E32BFF9CA800364699 /* RootNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationView.swift; sourceTree = "<group>"; };
 		AB1CE2E52BFFD14500364699 /* DestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
+		AB1CE2E72BFFD9F500364699 /* NavigationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManagerProtocol.swift; sourceTree = "<group>"; };
 		AB7FAB672BBC61D200B97DC3 /* Ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ecommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7FAB712BBC61D200B97DC3 /* BaseActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseActions.swift; sourceTree = "<group>"; };
 		AB7FAB732BBC61D200B97DC3 /* BaseAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlert.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		AB1CE2DE2BFF9C6700364699 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				AB1CE2E72BFFD9F500364699 /* NavigationManagerProtocol.swift */,
 				AB1CE2DF2BFF9C7F00364699 /* NavigationManager.swift */,
 				AB1CE2E32BFF9CA800364699 /* RootNavigationView.swift */,
 				AB1CE2E52BFFD14500364699 /* DestinationView.swift */,
@@ -525,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB7FAB722BBC61D200B97DC3 /* BaseActions.swift in Sources */,
+				AB1CE2E82BFFD9F500364699 /* NavigationManagerProtocol.swift in Sources */,
 				AB7FAC0A2BBED3D300B97DC3 /* IconSizeButton.swift in Sources */,
 				AB7FABA52BBC61D200B97DC3 /* Colors+Style.swift in Sources */,
 				AB7FAB862BBC61D200B97DC3 /* BaseViewModel.swift in Sources */,
@@ -742,7 +746,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = app.Ecommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -777,7 +781,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = app.Ecommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

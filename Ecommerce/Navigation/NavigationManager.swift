@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-// Enum para definir diferentes destinos de navegación
 enum NavigationDestination: Identifiable, Hashable {
+    var id: Self { self }
     case home
     case productDetail(product: ProductModel)
-    var id: Self { self }
 }
 
 enum RootView {
@@ -19,19 +18,17 @@ enum RootView {
     case home
 }
 
-// Clase de modelo de navegación
-class NavigationManager: ObservableObject {
+class NavigationManager: NavigationManagerProtocol {
     
     @Published var currentRoot: RootView = .splash
     @Published var path = NavigationPath()
     @Published var present: NavigationDestination?
     @Published var presentedModal: NavigationDestination?
     
-
     func push(_ destination: NavigationDestination) {
         path.append(destination)
     }
-
+    
     func presentModal(_ destination: NavigationDestination, fullScreen: Bool = false) {
         if fullScreen {
             present = destination
@@ -40,35 +37,35 @@ class NavigationManager: ObservableObject {
         }
     }
     
-    // MARK: - Dismiss functions
-    
     func dismiss() {
         present = nil
         presentedModal = nil
     }
     
     func dismiss(withCompletion: @escaping () -> Void) {
-        present = nil
-        presentedModal = nil
+        dismiss()
         withCompletion()
     }
     
-    // MARK: - Pop to..
-
     func popToRoot() {
+        guard !path.isEmpty else {
+            print("path is empty, cannot go to root")
+            return
+        }
         path.removeLast(path.count)
     }
     
     func popToLast() {
+        guard !path.isEmpty else {
+            print("path is empty, cannot go back")
+            return
+        }
         path.removeLast()
     }
     
-    // MARK: - Reset
-    
     func reset() {
-        path.removeLast(path.count)
+        path = NavigationPath()
         present = nil
         presentedModal = nil
     }
 }
-

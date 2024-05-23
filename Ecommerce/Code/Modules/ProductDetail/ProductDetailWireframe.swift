@@ -5,9 +5,9 @@ import SwiftUI
 final class ProductDetailWireframe {
 
     private var product: ProductModel?
-    private var navigationManager: NavigationManager?
+    private var navigationManager: any NavigationManagerProtocol
     
-    init(navigationManager: NavigationManager?, product: ProductModel?) {
+    init(navigationManager: any NavigationManagerProtocol, product: ProductModel?) {
         self.navigationManager = navigationManager
         self.product = product
     }

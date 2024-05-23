@@ -8,10 +8,10 @@ import Foundation
 import SwiftUI
 
 final class LaunchWireframe {
-
-    private var navigationManager: NavigationManager?
     
-    init(navigationManager: NavigationManager?) {
+    private var navigationManager: any NavigationManagerProtocol
+    
+    init(navigationManager: any NavigationManagerProtocol) {
         self.navigationManager = navigationManager
     }
     
@@ -22,7 +22,7 @@ final class LaunchWireframe {
     private var viewModel: LaunchViewModel {
         LaunchViewModel(navigationManager: navigationManager)
     }
-
+    
     // MARK: - Public Functions
     
     func preview() -> some View {

@@ -4,9 +4,9 @@ import SwiftUI
 
 final class CheckoutWireframe {
 
-    private var navigationManager: NavigationManager?
+    private var navigationManager: any NavigationManagerProtocol
     
-    init(navigationManager: NavigationManager?) {
+    init(navigationManager: any NavigationManagerProtocol) {
         self.navigationManager = navigationManager
     }
     

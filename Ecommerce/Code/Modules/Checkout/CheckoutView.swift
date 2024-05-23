@@ -135,5 +135,5 @@ struct CheckoutView: View {
 }
 
 #Preview {
-    CheckoutWireframe(navigationManager: nil).preview()
+    CheckoutWireframe(navigationManager: NavigationManager()).preview()
 }

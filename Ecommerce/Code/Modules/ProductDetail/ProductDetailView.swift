@@ -141,5 +141,5 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-    ProductDetailWireframe(navigationManager: nil, product: nil).preview()
+    ProductDetailWireframe(navigationManager: NavigationManager(), product: nil).preview()
 }

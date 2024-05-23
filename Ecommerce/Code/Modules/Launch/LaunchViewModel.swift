@@ -11,9 +11,9 @@ final class LaunchViewModel: BaseViewModel {
 
     // MARK: - Properties
 
-    private var navigationManager: NavigationManager?
-
-    init(navigationManager: NavigationManager?) {
+    private var navigationManager: any NavigationManagerProtocol
+    
+    init(navigationManager: any NavigationManagerProtocol) {
         self.navigationManager = navigationManager
     }
 
@@ -49,7 +49,7 @@ final class LaunchViewModel: BaseViewModel {
     }
     
     func goHome() {
-        navigationManager?.currentRoot = .home
+        navigationManager.currentRoot = .home
     }
 
     // MARK: -  Check if is a simulator
