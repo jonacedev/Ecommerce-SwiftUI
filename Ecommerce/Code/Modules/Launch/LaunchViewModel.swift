@@ -11,14 +11,10 @@ final class LaunchViewModel: BaseViewModel {
 
     // MARK: - Properties
 
-    private let wireframe: LaunchWireframe
+    private var navigationManager: NavigationManager?
 
-    // MARK: - Object lifecycle
-
-    init(wireframe: LaunchWireframe) {
-        self.wireframe = wireframe
-        super.init()
-        checkDevice()
+    init(navigationManager: NavigationManager?) {
+        self.navigationManager = navigationManager
     }
 
     // MARK: - Private Functions
@@ -46,23 +42,20 @@ final class LaunchViewModel: BaseViewModel {
 
     private func goFirstScreen() {
         if userDefaults.shouldRememberUser == true {
-            //goHome()
+            goHome()
         } else {
             //goLogin()
         }
     }
-
-    // MARK: -  Check if is a simulator
-    private func isSimulator() -> Bool {
-        return TARGET_OS_SIMULATOR != 0
-    }
-    
-    func goLogin() {
-        //LoginWireframe(navigator: navigator).present()
-    }
     
     func goHome() {
-        wireframe.goHome()
+        navigationManager?.currentRoot = .home
+    }
+
+    // MARK: -  Check if is a simulator
+    
+    private func isSimulator() -> Bool {
+        return TARGET_OS_SIMULATOR != 0
     }
 
 }

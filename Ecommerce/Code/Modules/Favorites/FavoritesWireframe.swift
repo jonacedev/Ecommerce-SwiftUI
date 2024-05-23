@@ -2,7 +2,13 @@
 
 import SwiftUI
 
-final class FavoritesWireframe: BaseWireframe {
+final class FavoritesWireframe {
+
+    private var navigationManager: NavigationManager?
+    
+    init(navigationManager: NavigationManager?) {
+        self.navigationManager = navigationManager
+    }
 
     // MARK: - Private Functions
     
@@ -11,38 +17,14 @@ final class FavoritesWireframe: BaseWireframe {
     }
     
     private var viewModel: FavoritesViewModel {
-        return FavoritesViewModel(wireframe: self)
-    }
-    
-    internal override func viewController() -> FavoritesViewController {
-        return FavoritesViewController(root: view)
-    }
-
-    final class FavoritesViewController: BaseViewController <FavoritesView> {
-        init(root: FavoritesView) {
-            super.init(rootView: root)
-        }
-
-        deinit {print("\(String(describing: self)): Deinit called")}
-        @objc required dynamic init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+        FavoritesViewModel(navigationManager: navigationManager)
     }
 
     // MARK: - Public Functions
-
-    func push() {
-        navigator?.show(viewController(), sender: nil)
-    }
     
     func preview() -> some View {
         view
     }
-    
-    func goToDetail(product: ProductModel) {
-        let productWireframe = ProductDetailWireframe(navigator: navigator)
-        productWireframe.product = product
-        productWireframe.push()
-    }
-    
 }
 
 

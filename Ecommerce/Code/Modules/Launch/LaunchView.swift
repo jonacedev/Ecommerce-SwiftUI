@@ -4,6 +4,7 @@
 import SwiftUI
 
 struct LaunchView: View {
+    
     @StateObject var viewModel: LaunchViewModel
 
     var body: some View {
@@ -34,5 +35,5 @@ struct LaunchView: View {
 }
 
 #Preview {
-    LaunchWireframe(navigator: nil).preview()
+    LaunchWireframe(navigationManager: nil).preview()
 }

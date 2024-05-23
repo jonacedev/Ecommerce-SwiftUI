@@ -2,45 +2,26 @@
 
 import SwiftUI
 
-final class CheckoutWireframe: BaseWireframe {
+final class CheckoutWireframe {
 
-    // MARK: - Private Functions
+    private var navigationManager: NavigationManager?
+    
+    init(navigationManager: NavigationManager?) {
+        self.navigationManager = navigationManager
+    }
     
     var view: CheckoutView {
         CheckoutView(viewModel: self.viewModel)
     }
     
     private var viewModel: CheckoutViewModel {
-        return CheckoutViewModel(wireframe: self)
-    }
-    
-    internal override func viewController() -> CheckoutViewController {
-        return CheckoutViewController(root: view)
-    }
-
-    final class CheckoutViewController: BaseViewController <CheckoutView> {
-        init(root: CheckoutView) {
-            super.init(rootView: root)
-        }
-
-        deinit {print("\(String(describing: self)): Deinit called")}
-        @objc required dynamic init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+        CheckoutViewModel(navigationManager: navigationManager)
     }
 
     // MARK: - Public Functions
-
-    func push() {
-        navigator?.show(viewController(), sender: nil)
-    }
     
     func preview() -> some View {
         view
-    }
-    
-    func goToDetail(product: ProductModel) {
-        let productWireframe = ProductDetailWireframe(navigator: navigator)
-        productWireframe.product = product
-        productWireframe.push()
     }
 }
 

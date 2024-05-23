@@ -4,8 +4,8 @@ import SwiftUI
 struct CheckoutView: View {
     
     @EnvironmentObject var parentViewModel: MainTabBarViewModel
-    
     @StateObject var viewModel: CheckoutViewModel
+    
     @ObservedObject var productsData = ProductsData.shared
     @State var shippingFee: Double = 3.99
     @State var itemSelected: String? = "checkout_visa_default".localized
@@ -24,7 +24,8 @@ struct CheckoutView: View {
                             productsData.updateProductCart(id: product.id, newPrice: newPrice, newItemsAmount: newItemsAmount)
                         })
                         .onTapGesture {
-                            viewModel.goToDetail(product: productsData.products[product.id])
+                            let product = productsData.products[product.id]
+                            viewModel.goDetail(product: product)
                         }
                         .listRowSeparator(.hidden)
                     }
@@ -134,5 +135,5 @@ struct CheckoutView: View {
 }
 
 #Preview {
-    CheckoutWireframe(navigator: nil).preview()
+    CheckoutWireframe(navigationManager: nil).preview()
 }

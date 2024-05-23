@@ -6,24 +6,17 @@ import Foundation
 
 final class FavoritesViewModel: BaseViewModel {
 
-    // MARK: - Properties
-
-    private let wireframe: FavoritesWireframe
-
-    // MARK: - Init
-
-    init(wireframe: FavoritesWireframe) {
-        self.wireframe = wireframe
-        super.init()
-    }
-
-    // MARK: - Private Functions
-
-    func onAppear() {
-       //getAllInfo()
-    }
+    private var navigationManager: NavigationManager?
     
-    func goToDetail(product: ProductModel) {
-        wireframe.goToDetail(product: product)
+    init(navigationManager: NavigationManager?) {
+        self.navigationManager = navigationManager
+    }
+
+    // MARK: - Functions
+
+    func onAppear() { }
+    
+    func goDetail(product: ProductModel) {
+        navigationManager?.push(.productDetail(product: product))
     }
 }
