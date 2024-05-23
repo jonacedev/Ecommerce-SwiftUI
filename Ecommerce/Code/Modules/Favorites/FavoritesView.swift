@@ -19,7 +19,8 @@ struct FavoritesView: View {
                             removeFromFavorites(favIndex: index)
                        })
                        .onTapGesture {
-                           viewModel.goToDetail(product: productsData.favoritesProducts()[index])
+                           let product = productsData.favoritesProducts()[index]
+                           viewModel.goDetail(product: product)
                        }
                    }
                }
@@ -56,5 +57,5 @@ struct FavoritesView: View {
 }
 
 #Preview {
-    FavoritesWireframe(navigator: nil).preview()
+    FavoritesWireframe(navigationManager: nil).preview()
 }

@@ -2,7 +2,13 @@
 
 import SwiftUI
 
-final class MainTabBarWireframe: BaseWireframe {
+final class MainTabBarWireframe {
+    
+    private var navigationManager: NavigationManager?
+    
+    init(navigationManager: NavigationManager?) {
+        self.navigationManager = navigationManager
+    }
 
     // MARK: - Private Functions
     
@@ -11,27 +17,10 @@ final class MainTabBarWireframe: BaseWireframe {
     }
     
     private var viewModel: MainTabBarViewModel {
-        return MainTabBarViewModel(wireframe: self)
-    }
-    
-    internal override func viewController() -> MainTabBarViewController {
-        return MainTabBarViewController(root: view)
-    }
-
-    final class MainTabBarViewController: BaseViewController <MainTabBarView> {
-        init(root: MainTabBarView) {
-            super.init(rootView: root)
-        }
-
-        deinit {print("\(String(describing: self)): Deinit called")}
-        @objc required dynamic init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+        MainTabBarViewModel(navigationManager: navigationManager)
     }
 
     // MARK: - Public Functions
-    
-    func present() {
-        super.present(viewController: viewController())
-    }
     
     func preview() -> some View {
         view

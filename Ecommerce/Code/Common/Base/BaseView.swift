@@ -19,7 +19,7 @@ struct BaseView<Content: View>: View {
             loader()
         }
         .onTapGesture {
-              hideKeyboard()
+            hideKeyboard()
         }
     }
 

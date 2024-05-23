@@ -14,15 +14,15 @@ struct MainTabBarView: View {
         ZStack(alignment: .bottom) {
             TabView(selection: $viewModel.tabSelection) {
                 viewModel.vwHome
-                    .tag(MainTabBarViewModel.TabSelection.home.rawValue)
+                    .tag(TabSelection.home.rawValue)
                     .transition(.move(edge: .leading))
                     .environmentObject(viewModel)
                 viewModel.vwFavorites
-                    .tag(MainTabBarViewModel.TabSelection.favorites.rawValue)
+                    .tag(TabSelection.favorites.rawValue)
                     .transition(.move(edge: .trailing))
                     .environmentObject(viewModel)
                 viewModel.vwCheckout
-                    .tag(MainTabBarViewModel.TabSelection.checkout.rawValue)
+                    .tag(TabSelection.checkout.rawValue)
                     .transition(.move(edge: .trailing))
                     .environmentObject(viewModel)
             }
@@ -54,5 +54,5 @@ struct MainTabBarView: View {
 }
 
 #Preview {
-    MainTabBarWireframe(navigator: nil).preview()
+    MainTabBarWireframe(navigationManager: nil).preview()
 }

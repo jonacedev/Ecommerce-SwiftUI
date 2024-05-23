@@ -2,29 +2,20 @@
 
 import SwiftUI
 
-final class HomeWireframe: BaseWireframe {
+final class HomeWireframe {
 
-    // MARK: - Private Functions
+    private var navigationManager: NavigationManager?
+    
+    init(navigationManager: NavigationManager?) {
+        self.navigationManager = navigationManager
+    }
     
     var view: HomeView {
         HomeView(viewModel: self.viewModel)
     }
     
     private var viewModel: HomeViewModel {
-        return HomeViewModel(wireframe: self)
-    }
-    
-    internal override func viewController() -> HomeViewController {
-        return HomeViewController(root: view)
-    }
-
-    final class HomeViewController: BaseViewController <HomeView> {
-        init(root: HomeView) {
-            super.init(rootView: root)
-        }
-
-        deinit {print("\(String(describing: self)): Deinit called")}
-        @objc required dynamic init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+        HomeViewModel(navigationManager: navigationManager)
     }
 
     // MARK: - Public Functions
@@ -32,17 +23,6 @@ final class HomeWireframe: BaseWireframe {
     func preview() -> some View {
         view
     }
-    
-    func present() {
-        super.present(viewController: viewController())
-    }
-    
-    func goToDetail(product: ProductModel) {
-        let productWireframe = ProductDetailWireframe(navigator: navigator)
-        productWireframe.product = product
-        productWireframe.push()
-    }
-    
 }
 
 

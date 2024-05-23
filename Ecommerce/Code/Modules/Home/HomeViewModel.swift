@@ -5,23 +5,20 @@ import Combine
 import Foundation
 
 final class HomeViewModel: BaseViewModel {
-
+    
     // MARK: - Properties
+    
+    private var navigationManager: NavigationManager?
 
-    private let wireframe: HomeWireframe
-
-    // MARK: - Init
-
-    init(wireframe: HomeWireframe) {
-        self.wireframe = wireframe
-        super.init()
+    init(navigationManager: NavigationManager?) {
+        self.navigationManager = navigationManager
     }
 
     // MARK: - Private Functions
 
     func onAppear() { }
     
-    func goToDetail(product: ProductModel) {
-        wireframe.goToDetail(product: product)
+    func goDetail(product: ProductModel) {
+        navigationManager?.push(.productDetail(product: product))
     }
 }

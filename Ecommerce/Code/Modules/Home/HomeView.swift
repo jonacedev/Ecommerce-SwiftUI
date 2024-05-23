@@ -56,7 +56,8 @@ struct HomeView: View {
                         }
                    })
                    .onTapGesture {
-                       viewModel.goToDetail(product: filteredResults[index])
+                       let product = filteredResults[index]
+                       viewModel.goDetail(product: product)
                    }
                }
            }
@@ -78,5 +79,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeWireframe(navigator: nil).preview()
+    HomeWireframe(navigationManager: nil).preview()
 }

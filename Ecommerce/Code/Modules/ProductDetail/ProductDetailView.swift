@@ -12,6 +12,7 @@ struct ProductDetailView: View {
 
     var body: some View {
         BaseView(content: content, vm: viewModel)
+            .toolbar(.hidden, for: .navigationBar)
     }
 
     @ViewBuilder private func content() -> some View {
@@ -140,5 +141,5 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-    ProductDetailWireframe(navigator: nil).preview()
+    ProductDetailWireframe(navigationManager: nil, product: nil).preview()
 }

@@ -62,59 +62,59 @@ final class BaseActions {
         return UIApplication.shared.canOpenURL(URL(string: "maps://")!)
     }
 
-    static func share(text: String) {
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//    static func share(text: String) {
+//        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//
+//        if let rootVc = appDelegate?.window?.rootViewController {
+//            let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+//            activityViewController.popoverPresentationController?.sourceView = rootVc.view
+//            rootVc.present(activityViewController, animated: true, completion: nil)
+//        }
+//    }
+//
+//    static func shareData(data: NSData) {
+//
+//        var rootVc: UIViewController?
+//
+//        if let nav = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController as? UINavigationController {
+//
+//            rootVc = nav
+//        } else {
+//            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//
+//            rootVc = appDelegate?.window?.rootViewController
+//        }
+//
+//        if let rootVc = rootVc {
+//            let activityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+//            activityViewController.popoverPresentationController?.sourceView = rootVc.view
+//            rootVc.present(activityViewController, animated: true, completion: nil)
+//        }
+//    }
+//
+//    static func openSafari(_ url: URL) {
+//        let safariController = SFSafariViewController(url: url)
+//        safariController.modalPresentationStyle = .fullScreen
+//        
+//        // MARK: - Cambiar color
+//        safariController.preferredControlTintColor = UIColor(Color.blue)
+//
+//        var rootVc: UIViewController?
+//
+//        if let nav = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController as? UINavigationController {
+//            rootVc = nav
+//        } else {
+//            rootVc = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController
+//        }
+//
+//        rootVc?.present(safariController, animated: true, completion: nil)
+//    }
 
-        if let rootVc = appDelegate?.window?.rootViewController {
-            let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = rootVc.view
-            rootVc.present(activityViewController, animated: true, completion: nil)
-        }
-    }
-
-    static func shareData(data: NSData) {
-
-        var rootVc: UIViewController?
-
-        if let nav = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController as? UINavigationController {
-
-            rootVc = nav
-        } else {
-            let appDelegate = UIApplication.shared.delegate as? AppDelegate
-
-            rootVc = appDelegate?.window?.rootViewController
-        }
-
-        if let rootVc = rootVc {
-            let activityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = rootVc.view
-            rootVc.present(activityViewController, animated: true, completion: nil)
-        }
-    }
-
-    static func openSafari(_ url: URL) {
-        let safariController = SFSafariViewController(url: url)
-        safariController.modalPresentationStyle = .fullScreen
-        
-        // MARK: - Cambiar color
-        safariController.preferredControlTintColor = UIColor(Color.blue)
-
-        var rootVc: UIViewController?
-
-        if let nav = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController as? UINavigationController {
-            rootVc = nav
-        } else {
-            rootVc = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController
-        }
-
-        rootVc?.present(safariController, animated: true, completion: nil)
-    }
-
-    static func openSafari(_ url: String) {
-        if let url = URL(string: url) {
-            openSafari(url)
-        }
-    }
+//    static func openSafari(_ url: String) {
+//        if let url = URL(string: url) {
+//            openSafari(url)
+//        }
+//    }
 
     static func openToAppSettings() {
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),

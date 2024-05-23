@@ -2,35 +2,24 @@
 
 import SwiftUI
 
-final class ProductDetailWireframe: BaseWireframe {
+final class ProductDetailWireframe {
 
-    // MARK: - Private Functions
+    private var product: ProductModel?
+    private var navigationManager: NavigationManager?
     
-    var product: ProductModel?
+    init(navigationManager: NavigationManager?, product: ProductModel?) {
+        self.navigationManager = navigationManager
+        self.product = product
+    }
     
     var view: ProductDetailView {
         ProductDetailView(viewModel: self.viewModel)
     }
     
     private var viewModel: ProductDetailViewModel {
-        let viewModel = ProductDetailViewModel(wireframe: self)
-        if let product {
-            viewModel.set(product: product)
-        }
+        let viewModel = ProductDetailViewModel(navigationManager: navigationManager)
+        if let product { viewModel.set(product: product) }
         return viewModel
-    }
-    
-    internal override func viewController() -> ProductDetailViewController {
-        return ProductDetailViewController(root: view)
-    }
-
-    final class ProductDetailViewController: BaseViewController <ProductDetailView> {
-        init(root: ProductDetailView) {
-            super.init(rootView: root)
-        }
-
-        deinit {print("\(String(describing: self)): Deinit called")}
-        @objc required dynamic init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     }
 
     // MARK: - Public Functions
@@ -39,15 +28,6 @@ final class ProductDetailWireframe: BaseWireframe {
         self.product = ProductsData.shared.products.first
         return view
     }
-
-    func push() {
-        super.push(viewController: viewController())
-    }
-    
-    func goBack() {
-        back()
-    }
-  
 }
 
 
