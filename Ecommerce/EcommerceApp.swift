@@ -14,15 +14,11 @@ struct EcommerceApp: App {
     
     var body: some Scene {
         WindowGroup {
-            Group {
-                ZStack {
-                    rootView()
+            rootView()
+                .environmentObject(navigationManager)
+                .onReceive(navigationManager.$currentRoot) { _ in
+                    navigationManager.reset()
                 }
-            }
-            .environmentObject(navigationManager)
-            .onReceive(navigationManager.$currentRoot) { _ in
-                navigationManager.reset()
-            }
         }
     }
     

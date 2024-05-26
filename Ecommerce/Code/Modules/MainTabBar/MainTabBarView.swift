@@ -16,16 +16,14 @@ struct MainTabBarView: View {
                 viewModel.vwHome
                     .tag(TabSelection.home.rawValue)
                     .transition(.move(edge: .leading))
-                    .environmentObject(viewModel)
                 viewModel.vwFavorites
                     .tag(TabSelection.favorites.rawValue)
                     .transition(.move(edge: .trailing))
-                    .environmentObject(viewModel)
                 viewModel.vwCheckout
                     .tag(TabSelection.checkout.rawValue)
                     .transition(.move(edge: .trailing))
-                    .environmentObject(viewModel)
             }
+            .environmentObject(viewModel)
             
             tabBar()
         }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeGridCell: View {
     var product: ProductModel
-    var favoritePressed: (Bool) -> Void
+    var favoritePressed: () -> Void
     var body: some View {
         ZStack(alignment: .topTrailing) {
            
@@ -34,7 +34,7 @@ struct HomeGridCell: View {
             }
             
             IconButton(image: product.isFavorite ? "heart_fill" : "heart" , size: .small, isCircular: true, action: {
-                favoritePressed(!product.isFavorite)
+                favoritePressed()
             })
             .padding(.top, 10)
             .padding(.trailing, 10)
@@ -43,5 +43,5 @@ struct HomeGridCell: View {
 }
 
 #Preview {
-    HomeGridCell(product: ProductsData.shared.products.first!, favoritePressed: { _ in })
+    HomeGridCell(product: ProductsData.shared.products.first!, favoritePressed: { })
 }
