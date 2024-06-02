@@ -14,11 +14,17 @@ struct EcommerceApp: App {
     
     var body: some Scene {
         WindowGroup {
-            rootView()
-                .environmentObject(navigationManager)
-                .onReceive(navigationManager.$currentRoot) { _ in
-                    navigationManager.reset()
-                }
+            ZStack {
+                rootView()
+                    .environmentObject(navigationManager)
+                    .onReceive(navigationManager.$currentRoot) { _ in
+                        navigationManager.reset()
+                    }
+                alert()
+                loader()
+            }
+            
+           
         }
     }
     
@@ -31,6 +37,18 @@ struct EcommerceApp: App {
             RootNavigationView {
                 MainTabBarWireframe(navigationManager: navigationManager).view
             }
+        }
+    }
+    
+    @ViewBuilder func alert() -> some View {
+        if let alert = navigationManager.alert {
+            BaseAlert(model: alert)
+        }
+    }
+
+    @ViewBuilder func loader() -> some View {
+        if navigationManager.loading == true {
+            BaseLoader()
         }
     }
 }

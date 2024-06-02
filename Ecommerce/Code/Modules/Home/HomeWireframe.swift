@@ -15,7 +15,23 @@ final class HomeWireframe {
     }
     
     private var viewModel: HomeViewModel {
-        HomeViewModel(navigationManager: navigationManager)
+        HomeViewModel(navigationManager: navigationManager, dataManager: dataManager)
+    }
+    
+    private var dataManager: HomeDataManager {
+        HomeDataManager(productsAPI: productsAPI, favoritesAPI: favoritesAPI, usersAPI: usersAPI)
+    }
+    
+    private var productsAPI: ProductsAPI {
+        ProductsAPI()
+    }
+    
+    private var favoritesAPI: FavoritesAPI {
+        FavoritesAPI()
+    }
+    
+    private var usersAPI: UsersAPI {
+        UsersAPI()
     }
 
     // MARK: - Public Functions

@@ -6,7 +6,7 @@ struct MainTabBarView: View {
     @StateObject var viewModel: MainTabBarViewModel
     
     var body: some View {
-        BaseView(content: content, vm: viewModel)
+        BaseView(content: content)
     }
     
     @ViewBuilder private func content() -> some View {
@@ -19,9 +19,9 @@ struct MainTabBarView: View {
                 viewModel.vwFavorites
                     .tag(TabSelection.favorites.rawValue)
                     .transition(.move(edge: .trailing))
-                viewModel.vwCheckout
-                    .tag(TabSelection.checkout.rawValue)
-                    .transition(.move(edge: .trailing))
+//                viewModel.vwCheckout
+//                    .tag(TabSelection.checkout.rawValue)
+//                    .transition(.move(edge: .trailing))
             }
             .environmentObject(viewModel)
             

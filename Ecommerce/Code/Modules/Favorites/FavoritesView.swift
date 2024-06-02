@@ -4,22 +4,20 @@ import SwiftUI
 struct FavoritesView: View {
     
     @StateObject var viewModel: FavoritesViewModel
-    @ObservedObject var productsData = ProductsData.shared
     
     var body: some View {
-        BaseView(content: content, vm: viewModel)
+        BaseView(content: content)
     }
 
     @ViewBuilder private func content() -> some View {
         ScrollView {
-            if !productsData.favoritesProducts().isEmpty {
+            if !viewModel.favorites.isEmpty {
                 LazyVGrid(columns: [GridItem(.fixed(170)), GridItem(.fixed(170))]) {
-                    ForEach(0..<productsData.favoritesProducts().count, id: \.self) { index in
-                        HomeGridCell(product: productsData.favoritesProducts()[index], favoritePressed: {
-                            removeFromFavorites(favIndex: index)
+                    ForEach(viewModel.favorites, id: \.id) { product in
+                        HomeGridCell(product: product, isFavorite: viewModel.isFavorite(id: product.id), favoritePressed: {
+                            viewModel.tapFavorite(id: product.id)
                        })
                        .onTapGesture {
-                           let product = productsData.favoritesProducts()[index]
                            viewModel.goDetail(product: product)
                        }
                    }
@@ -30,6 +28,9 @@ struct FavoritesView: View {
             }
            
        }
+        .onAppear{
+            viewModel.getFavoritesList()
+        }
         .scrollIndicators(.hidden)
         .padding(.horizontal, 20)
         .padding(.top, 20)
@@ -47,12 +48,6 @@ struct FavoritesView: View {
         .background(Color.primaryApp.opacity(0.95))
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .padding(.top, 30)
-    }
-    
-    func removeFromFavorites(favIndex: Int) {
-        if let idx = productsData.products.firstIndex(where: { $0.id == productsData.favoritesProducts()[favIndex].id }) {
-            productsData.products[idx].isFavorite = false
-        }
     }
 }
 

@@ -8,7 +8,7 @@ struct LaunchView: View {
     @StateObject var viewModel: LaunchViewModel
 
     var body: some View {
-        BaseView(content: content, vm: viewModel)
+        BaseView(content: content)
     }
 
     @ViewBuilder private func content() -> some View {
@@ -26,8 +26,8 @@ struct LaunchView: View {
             }
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                viewModel.goHome()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
+                viewModel.onAppear()
             })
            
         }

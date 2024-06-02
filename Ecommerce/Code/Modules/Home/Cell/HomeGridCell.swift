@@ -6,24 +6,31 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct HomeGridCell: View {
-    var product: ProductModel
+    var product: Product
+    var isFavorite: Bool
     var favoritePressed: () -> Void
     var body: some View {
         ZStack(alignment: .topTrailing) {
            
             VStack(alignment: .leading) {
-                Image(product.imageName)
-                    .resizable()
+                WebImage(url: URL(string: product.image ?? "")) { image in
+                        image.resizable()
+                    } placeholder: {
+                        Rectangle().foregroundColor(.gray)
+                    }
+                    .indicator(.activity)
+                    .transition(.fade(duration: 0.3))
                     .scaledToFill()
                     .frame(width: 170, height: 220)
                     .clipShape(RoundedCorner(radius: 20))
                
-                Text(product.title)
+                Text(product.title ?? "")
                     .font(.subheadline.bold())
                     .padding(.top, 5)
-                Text(product.subTitle)
+                Text(product.subTitle ?? "")
                     .font(.subheadline)
                     .foregroundStyle(.gray)
              
@@ -33,7 +40,7 @@ struct HomeGridCell: View {
                     .padding(.bottom, 10)
             }
             
-            IconButton(image: product.isFavorite ? "heart_fill" : "heart" , size: .small, isCircular: true, action: {
+            IconButton(image: isFavorite ? "heart_fill" : "heart" , size: .small, isCircular: true, action: {
                 favoritePressed()
             })
             .padding(.top, 10)
@@ -43,5 +50,5 @@ struct HomeGridCell: View {
 }
 
 #Preview {
-    HomeGridCell(product: ProductsData.shared.products.first!, favoritePressed: { })
+    HomeGridCell(product: Product(), isFavorite: true, favoritePressed: { })
 }
