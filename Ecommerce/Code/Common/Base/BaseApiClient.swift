@@ -21,8 +21,6 @@ struct ApiError: Decodable {
 
 class BaseApiClient {
     
-    private var baseURL: String = "https://ecommerce-api-test.up.railway.app/api"
-    
     func requestPublisher<T: Decodable>(
         path: String?,
         queryItems: [URLQueryItem]? = nil,
@@ -31,7 +29,8 @@ class BaseApiClient {
         headers: [String: String]? = nil
     ) -> AnyPublisher<T, BaseError> {
         
-        guard let path = path, let urlAbsolute = URL(string: baseURL)?.appendingPathComponent(path) else {
+        let baseUrl = Environment.shared.baseURL
+        guard let path = path, let urlAbsolute = URL(string: baseUrl)?.appendingPathComponent(path) else {
             return Fail(error: BaseError.generic).eraseToAnyPublisher()
         }
         
@@ -71,7 +70,6 @@ class BaseApiClient {
             .eraseToAnyPublisher()
     }
     
-    // Function to handle errors based on API responses
     private func handleError(data: Data) -> BaseError {
         if let apiError = try? JSONDecoder().decode(ApiError.self, from: data) {
             return BaseError.api(apiError)

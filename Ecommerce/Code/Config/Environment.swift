@@ -12,7 +12,7 @@ final class Environment {
     // MARK: - Constant
 
     private let typeFileEnvironment = "plist"
-    private let nameFileEnvironment = "Configuration"
+    private let nameFileEnvironment = "Config"
     private let keyEnvironmentURL = "baseURL"
   
     // MARK: - Shared Instance
@@ -28,11 +28,11 @@ final class Environment {
     }
     
     // MARK: - Properties
-    // swiftlint:disable force_cast
     private var plistEnvironment: [String: Any]?
 
     var baseURL: String {
-        return plistEnvironment?[keyEnvironmentURL] as! String
+        guard let baseUrl =  plistEnvironment?[keyEnvironmentURL] as? String else { fatalError("Invalid baseURL at plist") }
+        return baseUrl
     }
  
 }

@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>baseURL</key>
-	<string></string>
+	<string>https://ecommerce-api-test.up.railway.app/api</string>
 </dict>
 </plist>
