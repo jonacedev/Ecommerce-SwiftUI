@@ -7,17 +7,18 @@
 
 import Foundation
 
-struct ProductCartModel: Hashable {
-    var id: Int
+class ProductCartModel: Identifiable {
+    var id = UUID()
     var finalPrice: Double
     var amount: Int
     var sizeSelected: ClotheSize
+    var detail: Product?
     
-    init(productId: Int, finalPrice: Double, amount: Int, sizeSelected: ClotheSize) {
-        self.id = productId
+    init(finalPrice: Double, amount: Int, sizeSelected: ClotheSize, productDetail: Product?) {
         self.finalPrice = finalPrice
         self.amount = amount
         self.sizeSelected = sizeSelected
+        self.detail = productDetail
     }
 }
 

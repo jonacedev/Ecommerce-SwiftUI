@@ -5,9 +5,11 @@ import SwiftUI
 final class MainTabBarWireframe {
     
     private var navigationManager: any NavigationManagerProtocol
+    private var shoppingCartManager: ShoppingCartManager
     
-    init(navigationManager: any NavigationManagerProtocol) {
+    init(navigationManager: any NavigationManagerProtocol, shoppingCartManager: ShoppingCartManager) {
         self.navigationManager = navigationManager
+        self.shoppingCartManager = shoppingCartManager
     }
 
     // MARK: - Private Functions
@@ -17,7 +19,7 @@ final class MainTabBarWireframe {
     }
     
     private var viewModel: MainTabBarViewModel {
-        MainTabBarViewModel(navigationManager: navigationManager)
+        MainTabBarViewModel(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager)
     }
 
     // MARK: - Public Functions

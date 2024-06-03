@@ -19,12 +19,11 @@ struct MainTabBarView: View {
                 viewModel.vwFavorites
                     .tag(TabSelection.favorites.rawValue)
                     .transition(.move(edge: .trailing))
-//                viewModel.vwCheckout
-//                    .tag(TabSelection.checkout.rawValue)
-//                    .transition(.move(edge: .trailing))
+                viewModel.vwCheckout
+                    .tag(TabSelection.checkout.rawValue)
+                    .transition(.move(edge: .trailing))
             }
-            .environmentObject(viewModel)
-            
+    
             tabBar()
         }
         .onAppear{
@@ -52,5 +51,5 @@ struct MainTabBarView: View {
 }
 
 #Preview {
-    MainTabBarWireframe(navigationManager: NavigationManager()).preview()
+    MainTabBarWireframe(navigationManager: NavigationManager(), shoppingCartManager: ShoppingCartManager()).preview()
 }

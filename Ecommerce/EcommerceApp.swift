@@ -10,21 +10,20 @@ import SwiftUI
 
 @main
 struct EcommerceApp: App {
+    
     @StateObject private var navigationManager = NavigationManager()
+    @StateObject private var shoppingCartManager = ShoppingCartManager()
     
     var body: some Scene {
         WindowGroup {
             ZStack {
                 rootView()
-                    .environmentObject(navigationManager)
                     .onReceive(navigationManager.$currentRoot) { _ in
                         navigationManager.reset()
                     }
                 alert()
                 loader()
             }
-            
-           
         }
     }
     
@@ -34,8 +33,8 @@ struct EcommerceApp: App {
         case .splash:
             LaunchWireframe(navigationManager: navigationManager).view
         case .home:
-            RootNavigationView {
-                MainTabBarWireframe(navigationManager: navigationManager).view
+            RootNavigationStack(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager) {
+                MainTabBarWireframe(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager).view
             }
         }
     }

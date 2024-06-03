@@ -15,9 +15,11 @@ final class ProductDetailViewModel: BaseViewModel {
     @Published var finalPrice: Double = 0
     
     private var dataManager: ProductDetailDataManager
+    var shoppingCartManager: ShoppingCartManager
     
-    init(navigationManager: any NavigationManagerProtocol, dataManager: ProductDetailDataManager) {
+    init(navigationManager: any NavigationManagerProtocol, shoppingCartManager: ShoppingCartManager, dataManager: ProductDetailDataManager) {
         self.dataManager = dataManager
+        self.shoppingCartManager = shoppingCartManager
         super.init(navigationManager: navigationManager)
     }
 
@@ -75,6 +77,15 @@ final class ProductDetailViewModel: BaseViewModel {
         }
     }
     
+    func addProductToCart() {
+        let newProductCartModel = ProductCartModel(finalPrice: finalPrice, amount: amountItems, sizeSelected: sizeSelected, productDetail: product)
+        shoppingCartManager.addProduct(product: newProductCartModel)
+        showAlert(alert: BaseAlert.Model(description: "alert_add_to_cart_title".localized, buttonText1: "alert_acept_title".localized, action1: {
+            self.hideAlert()
+            self.goBack()
+        }))
+    }
+    
   
     func incrementAmount() {
         amountItems += 1
@@ -87,23 +98,7 @@ final class ProductDetailViewModel: BaseViewModel {
             finalPrice -= product?.price ?? 0
         }
     }
-    
-    // MARK: - Add product to swiftData converting to ProductCartModel
-
-//    func addProductToCart() {
-//        let newProduct = ProductCartModel(productId: product?.id ?? 0, finalPrice: finalPrice, amount: amountItems, sizeSelected: sizeSelected)
-//        productsData.addProductToCart(product: newProduct)
-//        showCartSuccessAlert()
-//    }
-    
-//    func showCartSuccessAlert() {
-//        navigationManager.showAlert(alert: BaseAlert.Model(description: "alert_add_to_cart_title".localized, buttonText1: "alert_acept_title".localized, action1: {
-//            self.navigationManager.hideAlert()
-//            self.goBack()
-//        }))
-//    }
-//
-    
+        
     func goBack() {
         navigationManager.popToLast()
     }

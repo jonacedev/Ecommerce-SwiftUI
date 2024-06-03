@@ -9,7 +9,6 @@ import SwiftUI
 
 enum NavigationDestination: Identifiable, Hashable {
     var id: Self { self }
-    case home
     case productDetail(product: Product)
 }
 

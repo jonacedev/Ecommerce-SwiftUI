@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct RootNavigationView<Content: View>: View {
-    
-    @EnvironmentObject var navigationManager: NavigationManager
+struct RootNavigationStack<Content: View>: View {
+    @ObservedObject var navigationManager: NavigationManager
+    let shoppingCartManager: ShoppingCartManager
     let content: Content
     
-    init(@ViewBuilder content: () -> Content) {
+    init(navigationManager: NavigationManager, shoppingCartManager: ShoppingCartManager, @ViewBuilder content: () -> Content) {
+        self.navigationManager = navigationManager
+        self.shoppingCartManager = shoppingCartManager
         self.content = content()
     }
     
@@ -20,16 +22,15 @@ struct RootNavigationView<Content: View>: View {
         NavigationStack(path: $navigationManager.path) {
             content
                 .navigationDestination(for: NavigationDestination.self) { destination in
-                    DestinationView(destination: destination)
+                    DestinationView(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager, destination: destination)
                 }
                 .fullScreenCover(item: $navigationManager.present) { destination in
-                    DestinationView(destination: destination)
+                    DestinationView(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager, destination: destination)
                 }
                 .sheet(item: $navigationManager.presentedModal) { destination in
-                    DestinationView(destination: destination)
+                    DestinationView(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager, destination: destination)
                 }
         }
-        .environmentObject(navigationManager)
     }
 }
 

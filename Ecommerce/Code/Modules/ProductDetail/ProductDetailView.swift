@@ -5,7 +5,7 @@ import SDWebImageSwiftUI
 struct ProductDetailView: View {
     
     @StateObject var viewModel: ProductDetailViewModel
-    
+   
     var body: some View {
         BaseView(content: content)
             .toolbar(.hidden, for: .navigationBar)
@@ -67,7 +67,7 @@ struct ProductDetailView: View {
             vwSizeSelection()
             
             BaseButton(style: .primary, text: "product_detail_add_to_cart".localized + String.convertDoubleToString(viewModel.finalPrice) + "€", action: {
-                //viewModel.addProductToCart()
+                viewModel.addProductToCart()
             })
             .clipShape(Capsule())
             .padding(.top, 20)
@@ -132,5 +132,5 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-    ProductDetailWireframe(navigationManager: NavigationManager(), product: nil).preview()
+    ProductDetailWireframe(navigationManager: NavigationManager(), shoppingCartManager: ShoppingCartManager(), product: nil).preview()
 }

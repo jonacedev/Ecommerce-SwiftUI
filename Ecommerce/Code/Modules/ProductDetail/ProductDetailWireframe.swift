@@ -6,9 +6,11 @@ final class ProductDetailWireframe {
 
     private var product: Product?
     private var navigationManager: any NavigationManagerProtocol
+    private var shoppingCartManager: ShoppingCartManager
     
-    init(navigationManager: any NavigationManagerProtocol, product: Product?) {
+    init(navigationManager: any NavigationManagerProtocol, shoppingCartManager: ShoppingCartManager, product: Product?) {
         self.navigationManager = navigationManager
+        self.shoppingCartManager = shoppingCartManager
         self.product = product
     }
     
@@ -17,7 +19,7 @@ final class ProductDetailWireframe {
     }
     
     private var viewModel: ProductDetailViewModel {
-        let viewModel = ProductDetailViewModel(navigationManager: navigationManager, dataManager: dataManager)
+        let viewModel = ProductDetailViewModel(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager, dataManager: dataManager)
         if let product { viewModel.set(product: product) }
         return viewModel
     }
