@@ -43,6 +43,7 @@ struct HomeView: View {
                 } placeholder: {
                     Rectangle().foregroundColor(.gray)
                 }
+                .retryOnAppear(true)
                 .indicator(.activity)
                 .transition(.fade(duration: 0.3))
                 .scaledToFit()

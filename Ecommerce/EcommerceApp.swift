@@ -17,7 +17,7 @@ struct EcommerceApp: App {
     var body: some Scene {
         WindowGroup {
             ZStack {
-                rootView()
+                RootView()
                     .onReceive(navigationManager.$currentRoot) { _ in
                         navigationManager.reset()
                     }
@@ -28,7 +28,7 @@ struct EcommerceApp: App {
     }
     
     @ViewBuilder
-    private func rootView() -> some View {
+    private func RootView() -> some View {
         switch navigationManager.currentRoot {
         case .splash:
             LaunchWireframe(navigationManager: navigationManager).view

@@ -42,7 +42,6 @@ final class FavoritesViewModel: BaseViewModel {
                 } receiveValue: { [weak self] response in
                     self?.hideLoading()
                     self?.updateFavorites(isCurrentlyFavorite: true, id: id)
-                    self?.showAlert(alert: BaseAlert.Model(description: response.message ?? "", buttonText1: "alert_acept_title".localized, action1: { }))
             }.store(in: &cancellables)
         }
     }

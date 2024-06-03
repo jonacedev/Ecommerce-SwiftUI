@@ -21,6 +21,7 @@ struct HomeGridCell: View {
                     } placeholder: {
                         Rectangle().foregroundColor(.gray)
                     }
+                    .retryOnAppear(true)
                     .indicator(.activity)
                     .transition(.fade(duration: 0.3))
                     .scaledToFill()
