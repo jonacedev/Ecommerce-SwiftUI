@@ -9,8 +9,7 @@ import SwiftUI
 
 enum NavigationDestination: Identifiable, Hashable {
     var id: Self { self }
-    case home
-    case productDetail(product: ProductModel)
+    case productDetail(product: Product)
 }
 
 enum RootView {
@@ -24,6 +23,25 @@ class NavigationManager: NavigationManagerProtocol {
     @Published var path = NavigationPath()
     @Published var present: NavigationDestination?
     @Published var presentedModal: NavigationDestination?
+    
+    @Published var alert: BaseAlert.Model?
+    @Published var loading: Bool = false
+    
+    func showLoading() {
+        loading = true
+    }
+    
+    func hideLoading() {
+        loading = false
+    }
+    
+    func showAlert(alert: BaseAlert.Model) {
+        self.alert = alert
+    }
+    
+    func hideAlert() {
+        self.alert = nil
+    }
     
     func push(_ destination: NavigationDestination) {
         path.append(destination)

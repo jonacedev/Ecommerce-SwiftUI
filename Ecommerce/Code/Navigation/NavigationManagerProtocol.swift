@@ -20,4 +20,9 @@ protocol NavigationManagerProtocol: ObservableObject {
     func popToRoot()
     func popToLast()
     func reset()
+    
+    func showLoading()
+    func hideLoading()
+    func showAlert(alert: BaseAlert.Model)
+    func hideAlert()
 }

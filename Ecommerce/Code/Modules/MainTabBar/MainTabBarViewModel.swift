@@ -13,20 +13,19 @@ enum TabSelection: Int {
 final class MainTabBarViewModel: BaseViewModel {
 
     // MARK: - Properties
-    
+    private var shoppingCartManager: ShoppingCartManager
     @Published var tabSelection: Int = TabSelection.home.rawValue
+    
     lazy var vwHome: HomeView = HomeWireframe(navigationManager: navigationManager).view
     lazy var vwFavorites: FavoritesView = FavoritesWireframe(navigationManager: navigationManager).view
-    lazy var vwCheckout: CheckoutView = CheckoutWireframe(navigationManager: navigationManager).view
-    private var navigationManager: any NavigationManagerProtocol
+    lazy var vwCheckout: CheckoutView = CheckoutWireframe(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager).view
     
-    init(navigationManager: any NavigationManagerProtocol) {
-        self.navigationManager = navigationManager
+    init(navigationManager: any NavigationManagerProtocol, shoppingCartManager: ShoppingCartManager) {
+        self.shoppingCartManager = shoppingCartManager
+        super.init(navigationManager: navigationManager)
     }
 
     // MARK: - Private Functions
-
-    func onAppear() { }
     
     func readyTab() {
         tabSelection = tabSelection

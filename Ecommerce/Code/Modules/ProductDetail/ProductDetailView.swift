@@ -1,12 +1,13 @@
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProductDetailView: View {
     
     @StateObject var viewModel: ProductDetailViewModel
-    
+   
     var body: some View {
-        BaseView(content: content, vm: viewModel)
+        BaseView(content: content)
             .toolbar(.hidden, for: .navigationBar)
     }
     
@@ -28,20 +29,28 @@ struct ProductDetailView: View {
                 .padding(.leading, 20)
                 .padding(.top, 20)
                 
-                IconButton(image: viewModel.product?.isFavorite == true ? "heart_fill" : "heart" , size: .big, backgroundColor: .white, iconColor: .primaryApp, isCircular: true, action: {
-                    viewModel.toggleFavorite()
+                IconButton(image: viewModel.productIsFavorite() ? "heart_fill" : "heart" , size: .big, backgroundColor: .white, iconColor: .primaryApp, isCircular: true, action: {
+                    viewModel.tapFavorite()
                 })
                 .padding(.top, 20)
                 .padding(.trailing, 30)
             }
+        }
+        .onAppear {
+            viewModel.getFavoritesList()
         }
         .scrollIndicators(.hidden)
         
     }
     
     @ViewBuilder private func productImage() -> some View {
-        Image(viewModel.product?.imageName ?? "")
-            .resizable()
+        WebImage(url: URL(string: viewModel.product?.image ?? "")) { image in
+                image.resizable()
+            } placeholder: {
+                Rectangle().foregroundColor(.gray)
+            }
+            .indicator(.activity)
+            .transition(.fade(duration: 0.3))
             .scaledToFill()
             .frame(maxWidth: .infinity, maxHeight: 430)
             .clipShape(RoundedCorner(radius: 20))
@@ -123,5 +132,5 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-    ProductDetailWireframe(navigationManager: NavigationManager(), product: nil).preview()
+    ProductDetailWireframe(navigationManager: NavigationManager(), shoppingCartManager: ShoppingCartManager(), product: nil).preview()
 }

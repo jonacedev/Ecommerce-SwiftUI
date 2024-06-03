@@ -15,8 +15,7 @@ enum ErrorType {
 enum BaseError: Error {
     case generic
     case noInternetConnection
-    case tokenExpired
-    case unauthorized
+    case api(ApiError)
 
     func errorDescription() -> DescriptionError {
         var descriptionError: DescriptionError
@@ -32,16 +31,10 @@ enum BaseError: Error {
                                                      description: "general_error_no_internet".localized,
                                                      icon: "ic_alert",
                                                      button1: "general_accept".localized)
-        case .unauthorized:
-            descriptionError = DescriptionError(title: "login_unauthorized".localized,
-                                                     description: "".localized,
-                                                     icon: "ic_close_circle",
-                                                     button1: "general_accept".localized)
-
-        case .tokenExpired:
-            descriptionError = DescriptionError(title: "general_sesion_expired".localized,
-                                                     description: "",
-                                                     icon: "ic_close_circle",
+        case .api(let apiError):
+            descriptionError = DescriptionError(title: "popup_error_services_title".localized,
+                                                description: apiError.message ?? "",
+                                                     icon: "ic_alert",
                                                      button1: "general_accept".localized)
         }
 

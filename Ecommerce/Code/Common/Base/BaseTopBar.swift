@@ -58,5 +58,5 @@ struct BaseTopBar: View {
 #Preview {
     BaseView(content: {
         BaseTopBar(model: BaseTopBar.Model(text: "Texto prueba", back: {}))
-    }, vm: BaseViewModel())
+    })
 }

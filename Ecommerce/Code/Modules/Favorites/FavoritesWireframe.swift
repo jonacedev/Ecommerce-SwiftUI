@@ -17,7 +17,15 @@ final class FavoritesWireframe {
     }
     
     private var viewModel: FavoritesViewModel {
-        FavoritesViewModel(navigationManager: navigationManager)
+        FavoritesViewModel(navigationManager: navigationManager, dataManager: dataManager)
+    }
+    
+    private var dataManager: FavoritesDataManager {
+        FavoritesDataManager(favoritesAPI: favoritesAPI)
+    }
+    
+    private var favoritesAPI: FavoritesAPI {
+        FavoritesAPI()
     }
 
     // MARK: - Public Functions

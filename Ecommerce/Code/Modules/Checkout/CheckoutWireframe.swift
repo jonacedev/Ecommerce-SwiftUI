@@ -5,9 +5,11 @@ import SwiftUI
 final class CheckoutWireframe {
 
     private var navigationManager: any NavigationManagerProtocol
+    private var shoppingCartManager: ShoppingCartManager
     
-    init(navigationManager: any NavigationManagerProtocol) {
+    init(navigationManager: any NavigationManagerProtocol, shoppingCartManager: ShoppingCartManager) {
         self.navigationManager = navigationManager
+        self.shoppingCartManager = shoppingCartManager
     }
     
     var view: CheckoutView {
@@ -15,7 +17,7 @@ final class CheckoutWireframe {
     }
     
     private var viewModel: CheckoutViewModel {
-        CheckoutViewModel(navigationManager: navigationManager)
+        CheckoutViewModel(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager)
     }
 
     // MARK: - Public Functions

@@ -1,46 +1,37 @@
 
 import SwiftUI
+import SwiftData
 
 struct CheckoutView: View {
     
-    @EnvironmentObject var parentViewModel: MainTabBarViewModel
     @StateObject var viewModel: CheckoutViewModel
-    
-    @ObservedObject var productsData = ProductsData.shared
     @State var shippingFee: Double = 3.99
     @State var itemSelected: String? = "checkout_visa_default".localized
     
     var body: some View {
-        BaseView(content: content, vm: viewModel)
+        BaseView(content: content)
     }
     
     @ViewBuilder private func content() -> some View {
         VStack {
             List {
-                if !productsData.productsCart.isEmpty {
+                if !viewModel.products.isEmpty {
                     
-                    ForEach(productsData.productsCart, id: \.self) { product in
+                    ForEach(viewModel.products) { product in
                         CheckoutCell(product: product, updateProduct: { newPrice, newItemsAmount in
-                            productsData.updateProductCart(id: product.id, newPrice: newPrice, newItemsAmount: newItemsAmount)
+                            viewModel.shoppingCartManager.updateProductCart(id: product.detail?.id, newPrice: newPrice, newItemsAmount: newItemsAmount)
                         })
                         .onTapGesture {
-                            let product = productsData.products[product.id]
-                            viewModel.goDetail(product: product)
+                            viewModel.goDetail(product: product.detail)
                         }
                         .listRowSeparator(.hidden)
                     }
-                    .onDelete(perform: deleteItem)
+                    .onDelete(perform: viewModel.shoppingCartManager.removeProduct)
                     
                     vwCheckoutDetails()
                     
                     BaseButton(style: .primary, text: "checkout_pay_btn".localized, action: {
-                        parentViewModel.loading = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                            parentViewModel.loading = false
-                            productsData.productsCart.removeAll()
-                            successAlert()
-                        })
-                        
+                        viewModel.submitCart()
                     })
                     .listRowSeparator(.hidden)
                     .clipShape(Capsule())
@@ -73,11 +64,11 @@ struct CheckoutView: View {
             )
             
             Group {
-                let finalPrice = productsData.productsCart.compactMap{$0.finalPrice}.reduce(0, +)
+                let finalPrice = viewModel.products.compactMap{$0.finalPrice}.reduce(0, +)
                 let subTotal = finalPrice + shippingFee
                 
                 HStack {
-                    Text("Total (\(productsData.productsCart.count) items)")
+                    Text("Total (\(viewModel.products.count) items)")
                         .font(.subheadline)
                     Spacer()
                     Text(String.convertDoubleToString(finalPrice) + "euro_symbol".localized)
@@ -122,18 +113,8 @@ struct CheckoutView: View {
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .padding(.top, 20)
     }
-    
-    func deleteItem(at offsets: IndexSet) {
-        productsData.productsCart.remove(atOffsets: offsets)
-    }
-    
-    func successAlert() {
-        parentViewModel.alert = BaseAlert.Model(description: "alert_success_order".localized, buttonText1: "alert_acept_title".localized, action1: {
-            parentViewModel.alert = nil
-        })
-    }
 }
 
 #Preview {
-    CheckoutWireframe(navigationManager: NavigationManager()).preview()
+    CheckoutWireframe(navigationManager: NavigationManager(), shoppingCartManager: ShoppingCartManager()).preview()
 }

@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct DestinationView: View {
-    @EnvironmentObject var navigationManager: NavigationManager
+    var navigationManager: NavigationManager
+    var shoppingCartManager: ShoppingCartManager
     let destination: NavigationDestination
 
     var body: some View {
         switch destination {
-        case .home:
-            HomeWireframe(navigationManager: navigationManager).view
         case .productDetail(let product):
-            ProductDetailWireframe(navigationManager: navigationManager, product: product).view
+            ProductDetailWireframe(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager, product: product).view
         }
     }
 }

@@ -1,13 +1,13 @@
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct HomeView: View {
     
     @StateObject var viewModel: HomeViewModel
-    @ObservedObject var productsData = ProductsData.shared
     
     var body: some View {
-        BaseView(content: content, vm: viewModel)
+        BaseView(content: content)
     }
     
     @ViewBuilder private func content() -> some View {
@@ -25,18 +25,27 @@ struct HomeView: View {
             
             vwList()
         }
+        .onAppear {
+            viewModel.loadAllData()
+        }
     }
     
     @ViewBuilder private func vwHeader() -> some View {
         HStack {
             VStack(alignment: .leading) {
                 Text("greeting_title".localized)
-                Text("default_name_title".localized)
+                Text(viewModel.user?.username ?? "")
                     .font(.headline)
             }
             Spacer()
-            Image("profile")
-                .resizable()
+            WebImage(url: URL(string: viewModel.user?.profileImage ?? "")) { image in
+                    image.resizable()
+                } placeholder: {
+                    Rectangle().foregroundColor(.gray)
+                }
+                .retryOnAppear(true)
+                .indicator(.activity)
+                .transition(.fade(duration: 0.3))
                 .scaledToFit()
                 .clipShape(Circle())
                 .frame(width: 70, height: 70)
@@ -48,11 +57,9 @@ struct HomeView: View {
     @ViewBuilder private func vwList() -> some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.fixed(170)), GridItem(.fixed(170))]) {
-                ForEach(filteredResults, id: \.id) { product in
-                    HomeGridCell(product: product, favoritePressed: {
-                        if let idx = productsData.products.firstIndex(where: { $0.id == product.id }) {
-                            productsData.products[idx].isFavorite.toggle()
-                        }
+                ForEach(viewModel.filteredProducts(), id: \.id) { product in
+                    HomeGridCell(product: product, isFavorite: viewModel.isFavorite(id: product.id), favoritePressed: {
+                        viewModel.tapFavorite(id: product.id)
                     })
                     .onTapGesture {
                         viewModel.goDetail(product: product)
@@ -64,16 +71,6 @@ struct HomeView: View {
         .scrollIndicators(.hidden)
         .padding(.horizontal, 20)
     }
-    
-    
-    var filteredResults: [ProductModel] {
-        if viewModel.searchText.isEmpty {
-            return productsData.products
-        } else {
-            return productsData.products.filter { $0.title.localizedCaseInsensitiveContains(viewModel.searchText) }
-        }
-    }
-    
 }
 
 #Preview {
