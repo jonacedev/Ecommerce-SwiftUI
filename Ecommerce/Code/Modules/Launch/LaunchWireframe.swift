@@ -9,10 +9,10 @@ import SwiftUI
 
 final class LaunchWireframe {
     
-    private var navigationManager: any NavigationManagerProtocol
+    private var rootManager: RootManager
     
-    init(navigationManager: any NavigationManagerProtocol) {
-        self.navigationManager = navigationManager
+    init(rootManager: RootManager) {
+        self.rootManager = rootManager
     }
     
     var view: LaunchView {
@@ -20,7 +20,7 @@ final class LaunchWireframe {
     }
     
     private var viewModel: LaunchViewModel {
-        LaunchViewModel(navigationManager: navigationManager)
+        LaunchViewModel(rootManager: rootManager)
     }
     
     // MARK: - Public Functions

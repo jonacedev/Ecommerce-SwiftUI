@@ -5,11 +5,13 @@ import SwiftUI
 final class ProductDetailWireframe {
 
     private var product: Product?
-    private var navigationManager: any NavigationManagerProtocol
+    private var navigationManager: NavigationManager
+    private var rootManager: RootManager
     private var shoppingCartManager: ShoppingCartManager
     
-    init(navigationManager: any NavigationManagerProtocol, shoppingCartManager: ShoppingCartManager, product: Product?) {
+    init(navigationManager: NavigationManager, rootManager: RootManager, shoppingCartManager: ShoppingCartManager, product: Product?) {
         self.navigationManager = navigationManager
+        self.rootManager = rootManager
         self.shoppingCartManager = shoppingCartManager
         self.product = product
     }
@@ -19,8 +21,7 @@ final class ProductDetailWireframe {
     }
     
     private var viewModel: ProductDetailViewModel {
-        let viewModel = ProductDetailViewModel(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager, dataManager: dataManager)
-        if let product { viewModel.set(product: product) }
+        let viewModel = ProductDetailViewModel(navigationManager: navigationManager, rootManager: rootManager, shoppingCartManager: shoppingCartManager, dataManager: dataManager, product: product ?? Product())
         return viewModel
     }
     
@@ -35,8 +36,7 @@ final class ProductDetailWireframe {
     // MARK: - Public Functions
     
     func preview() -> some View {
-        //self.product = ProductsData.shared.products.first
-        return view
+        view
     }
 }
 

@@ -8,21 +8,8 @@
 import SwiftUI
 
 protocol NavigationManagerProtocol: ObservableObject {
-    var currentRoot: RootView { get set }
     var path: NavigationPath { get set }
-    var present: NavigationDestination? { get set }
-    var presentedModal: NavigationDestination? { get set }
-    
     func push(_ destination: NavigationDestination)
-    func presentModal(_ destination: NavigationDestination, fullScreen: Bool)
-    func dismiss()
-    func dismiss(withCompletion: @escaping () -> Void)
     func popToRoot()
     func popToLast()
-    func reset()
-    
-    func showLoading()
-    func hideLoading()
-    func showAlert(alert: BaseAlert.Model)
-    func hideAlert()
 }

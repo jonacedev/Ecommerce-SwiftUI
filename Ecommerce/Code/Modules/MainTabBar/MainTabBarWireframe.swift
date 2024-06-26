@@ -4,12 +4,10 @@ import SwiftUI
 
 final class MainTabBarWireframe {
     
-    private var navigationManager: any NavigationManagerProtocol
-    private var shoppingCartManager: ShoppingCartManager
+    private var rootManager: RootManager
     
-    init(navigationManager: any NavigationManagerProtocol, shoppingCartManager: ShoppingCartManager) {
-        self.navigationManager = navigationManager
-        self.shoppingCartManager = shoppingCartManager
+    init(rootManager: RootManager) {
+        self.rootManager = rootManager
     }
 
     // MARK: - Private Functions
@@ -19,7 +17,7 @@ final class MainTabBarWireframe {
     }
     
     private var viewModel: MainTabBarViewModel {
-        MainTabBarViewModel(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager)
+        MainTabBarViewModel(rootManager: rootManager)
     }
 
     // MARK: - Public Functions

@@ -11,16 +11,12 @@ import SwiftUI
 @main
 struct EcommerceApp: App {
     
-    @StateObject private var navigationManager = NavigationManager()
-    @StateObject private var shoppingCartManager = ShoppingCartManager()
+    @StateObject private var rootManager = RootManager()
     
     var body: some Scene {
         WindowGroup {
             ZStack {
                 RootView()
-                    .onReceive(navigationManager.$currentRoot) { _ in
-                        navigationManager.reset()
-                    }
                 alert()
                 loader()
             }
@@ -29,24 +25,22 @@ struct EcommerceApp: App {
     
     @ViewBuilder
     private func RootView() -> some View {
-        switch navigationManager.currentRoot {
+        switch rootManager.currentRoot {
         case .splash:
-            LaunchWireframe(navigationManager: navigationManager).view
+            LaunchWireframe(rootManager: rootManager).view
         case .home:
-            RootNavigationStack(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager) {
-                MainTabBarWireframe(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager).view
-            }
+            MainTabBarWireframe(rootManager: rootManager).view
         }
     }
     
     @ViewBuilder func alert() -> some View {
-        if let alert = navigationManager.alert {
+        if let alert = rootManager.alert {
             BaseAlert(model: alert)
         }
     }
 
     @ViewBuilder func loader() -> some View {
-        if navigationManager.loading == true {
+        if rootManager.loading == true {
             BaseLoader()
         }
     }

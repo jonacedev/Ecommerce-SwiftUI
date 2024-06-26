@@ -6,11 +6,11 @@ import SwiftUI
 struct LaunchView: View {
     
     @StateObject var viewModel: LaunchViewModel
-
+ 
     var body: some View {
         BaseView(content: content)
     }
-
+    
     @ViewBuilder private func content() -> some View {
         ZStack(alignment: .center) {
             Image("splash")
@@ -29,11 +29,11 @@ struct LaunchView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                 viewModel.onAppear()
             })
-           
+            
         }
     }
 }
 
 #Preview {
-    LaunchWireframe(navigationManager: NavigationManager()).preview()
+    LaunchWireframe(rootManager: RootManager()).view
 }

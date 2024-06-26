@@ -14,18 +14,17 @@ final class ProductDetailViewModel: BaseViewModel {
     @Published var amountItems: Int = 1
     @Published var finalPrice: Double = 0
     
-    private var dataManager: ProductDetailDataManager
+    var navigationManager: NavigationManager
     var shoppingCartManager: ShoppingCartManager
+    var dataManager: ProductDetailDataManager
     
-    init(navigationManager: any NavigationManagerProtocol, shoppingCartManager: ShoppingCartManager, dataManager: ProductDetailDataManager) {
-        self.dataManager = dataManager
+    init(navigationManager: NavigationManager, rootManager: RootManager, shoppingCartManager: ShoppingCartManager, dataManager: ProductDetailDataManager, product: Product) {
+        self.navigationManager = navigationManager
         self.shoppingCartManager = shoppingCartManager
-        super.init(navigationManager: navigationManager)
-    }
-
-    func set(product: Product) {
+        self.dataManager = dataManager
         self.product = product
         self.finalPrice = product.price ?? 0
+        super.init(rootManager: rootManager)
     }
     
     func getFavoritesList() {
@@ -61,7 +60,7 @@ final class ProductDetailViewModel: BaseViewModel {
                 .sink{ [weak self] completion in
                     self?.manage(completion: completion)
                 } receiveValue: { [weak self] response in
-                    self?.navigationManager.hideLoading()
+                    self?.rootManager.hideLoading()
                     self?.updateFavorites(isCurrentlyFavorite: false, id: self?.product?.id)
                 }.store(in: &cancellables)
         }

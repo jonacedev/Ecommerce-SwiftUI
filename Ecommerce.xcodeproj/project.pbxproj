@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB0C41502C2C6D4C00D2C441 /* RootManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0C414F2C2C6D4C00D2C441 /* RootManager.swift */; };
 		AB181D792BBFF27900BD002E /* Number+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB181D782BBFF27900BD002E /* Number+Utils.swift */; };
 		AB181D7B2BC1DD9800BD002E /* BaseDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB181D7A2BC1DD9800BD002E /* BaseDropDown.swift */; };
 		AB1CE2DD2BFF9C4300364699 /* EcommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CE2DC2BFF9C4300364699 /* EcommerceApp.swift */; };
 		AB1CE2E02BFF9C7F00364699 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CE2DF2BFF9C7F00364699 /* NavigationManager.swift */; };
-		AB1CE2E42BFF9CA800364699 /* RootNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CE2E32BFF9CA800364699 /* RootNavigationStack.swift */; };
+		AB1CE2E42BFF9CA800364699 /* NStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CE2E32BFF9CA800364699 /* NStack.swift */; };
 		AB1CE2E62BFFD14500364699 /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CE2E52BFFD14500364699 /* DestinationView.swift */; };
 		AB1CE2E82BFFD9F500364699 /* NavigationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CE2E72BFFD9F500364699 /* NavigationManagerProtocol.swift */; };
 		AB549CE32C0CD1EB006DC761 /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB549CE22C0CD1EB006DC761 /* HomeDataManager.swift */; };
@@ -92,11 +93,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AB0C414F2C2C6D4C00D2C441 /* RootManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootManager.swift; sourceTree = "<group>"; };
 		AB181D782BBFF27900BD002E /* Number+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Utils.swift"; sourceTree = "<group>"; };
 		AB181D7A2BC1DD9800BD002E /* BaseDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDropDown.swift; sourceTree = "<group>"; };
 		AB1CE2DC2BFF9C4300364699 /* EcommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcommerceApp.swift; sourceTree = "<group>"; };
 		AB1CE2DF2BFF9C7F00364699 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
-		AB1CE2E32BFF9CA800364699 /* RootNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationStack.swift; sourceTree = "<group>"; };
+		AB1CE2E32BFF9CA800364699 /* NStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NStack.swift; sourceTree = "<group>"; };
 		AB1CE2E52BFFD14500364699 /* DestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
 		AB1CE2E72BFFD9F500364699 /* NavigationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManagerProtocol.swift; sourceTree = "<group>"; };
 		AB549CE22C0CD1EB006DC761 /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
@@ -180,8 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				AB1CE2E72BFFD9F500364699 /* NavigationManagerProtocol.swift */,
+				AB0C414F2C2C6D4C00D2C441 /* RootManager.swift */,
 				AB1CE2DF2BFF9C7F00364699 /* NavigationManager.swift */,
-				AB1CE2E32BFF9CA800364699 /* RootNavigationStack.swift */,
+				AB1CE2E32BFF9CA800364699 /* NStack.swift */,
 				AB1CE2E52BFFD14500364699 /* DestinationView.swift */,
 			);
 			path = Navigation;
@@ -587,6 +590,7 @@
 				AB7FAC0A2BBED3D300B97DC3 /* IconSizeButton.swift in Sources */,
 				AB7FABA52BBC61D200B97DC3 /* Colors+Style.swift in Sources */,
 				AB7FAB862BBC61D200B97DC3 /* BaseViewModel.swift in Sources */,
+				AB0C41502C2C6D4C00D2C441 /* RootManager.swift in Sources */,
 				AB7FAB7C2BBC61D200B97DC3 /* BaseError.swift in Sources */,
 				AB7FAB9E2BBC61D200B97DC3 /* Strings+Utils.swift in Sources */,
 				AB7FAC142BBF281000B97DC3 /* CheckoutCell.swift in Sources */,
@@ -609,7 +613,7 @@
 				AB7FABA02BBC61D200B97DC3 /* SwiftUI+Utils.swift in Sources */,
 				AB7FAC082BBE39EB00B97DC3 /* BaseTabBar.swift in Sources */,
 				AB549CEC2C0CE64D006DC761 /* BaseApiClient.swift in Sources */,
-				AB1CE2E42BFF9CA800364699 /* RootNavigationStack.swift in Sources */,
+				AB1CE2E42BFF9CA800364699 /* NStack.swift in Sources */,
 				AB7FABF12BBCADD900B97DC3 /* ProductDetailView.swift in Sources */,
 				AB549CE82C0CD240006DC761 /* ProductsAPI.swift in Sources */,
 				AB7FAC112BBF1BAB00B97DC3 /* ProductCartModel.swift in Sources */,

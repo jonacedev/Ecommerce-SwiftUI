@@ -4,6 +4,11 @@ import SwiftUI
 struct MainTabBarView: View {
     
     @StateObject var viewModel: MainTabBarViewModel
+    @StateObject var shoppingCartManager = ShoppingCartManager()
+    
+    @StateObject var homeNavigationManager = NavigationManager()
+    @StateObject var favoritesNavigationManager = NavigationManager()
+    @StateObject var checkoutNavigationManager = NavigationManager()
     
     var body: some View {
         BaseView(content: content)
@@ -13,18 +18,38 @@ struct MainTabBarView: View {
         
         ZStack(alignment: .bottom) {
             TabView(selection: $viewModel.tabSelection) {
-                viewModel.vwHome
-                    .tag(TabSelection.home.rawValue)
-                    .transition(.move(edge: .leading))
-                viewModel.vwFavorites
-                    .tag(TabSelection.favorites.rawValue)
-                    .transition(.move(edge: .trailing))
-                viewModel.vwCheckout
-                    .tag(TabSelection.checkout.rawValue)
-                    .transition(.move(edge: .trailing))
+                Group {
+                    NStack(path: $homeNavigationManager.path,
+                           navigationManager:homeNavigationManager,
+                           rootManager: viewModel.rootManager,
+                           shoppingCartManager: shoppingCartManager) {
+                        HomeWireframe(navigationManager: homeNavigationManager, rootManager: viewModel.rootManager).view
+                    }
+                           .tag(TabSelection.home.rawValue)
+                           .transition(.move(edge: .leading))
+                    
+                    NStack(path: $favoritesNavigationManager.path,
+                           navigationManager: favoritesNavigationManager,
+                           rootManager: viewModel.rootManager,
+                           shoppingCartManager: shoppingCartManager) {
+                        FavoritesWireframe(navigationManager: favoritesNavigationManager, rootManager: viewModel.rootManager).view
+                    }
+                           .tag(TabSelection.favorites.rawValue)
+                           .transition(.move(edge: .trailing))
+                    
+                    NStack(path: $checkoutNavigationManager.path,
+                           navigationManager: checkoutNavigationManager,
+                           rootManager: viewModel.rootManager,
+                           shoppingCartManager: shoppingCartManager) {
+                        CheckoutWireframe(navigationManager: checkoutNavigationManager, rootManager: viewModel.rootManager, shoppingCartManager: shoppingCartManager).view
+                    }
+                           .tag(TabSelection.checkout.rawValue)
+                           .transition(.move(edge: .trailing))
+                }
             }
-    
+          
             tabBar()
+          
         }
         .onAppear{
             hideDefaultTabBar()
@@ -51,5 +76,5 @@ struct MainTabBarView: View {
 }
 
 #Preview {
-    MainTabBarWireframe(navigationManager: NavigationManager(), shoppingCartManager: ShoppingCartManager()).preview()
+    MainTabBarWireframe(rootManager: RootManager()).view
 }

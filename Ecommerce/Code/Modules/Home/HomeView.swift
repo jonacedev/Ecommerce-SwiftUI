@@ -74,5 +74,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeWireframe(navigationManager: NavigationManager()).preview()
+    HomeWireframe(navigationManager: NavigationManager(), rootManager: RootManager()).view
 }

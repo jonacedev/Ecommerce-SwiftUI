@@ -116,5 +116,5 @@ struct CheckoutView: View {
 }
 
 #Preview {
-    CheckoutWireframe(navigationManager: NavigationManager(), shoppingCartManager: ShoppingCartManager()).preview()
+    CheckoutWireframe(navigationManager: NavigationManager(), rootManager: RootManager(), shoppingCartManager: ShoppingCartManager()).view
 }

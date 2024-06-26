@@ -8,82 +8,25 @@
 import SwiftUI
 
 enum NavigationDestination: Identifiable, Hashable {
-    var id: Self { self }
+    var id: NavigationDestination { self }
     case productDetail(product: Product)
-}
-
-enum RootView {
-    case splash
-    case home
 }
 
 class NavigationManager: NavigationManagerProtocol {
     
-    @Published var currentRoot: RootView = .splash
     @Published var path = NavigationPath()
-    @Published var present: NavigationDestination?
-    @Published var presentedModal: NavigationDestination?
-    
-    @Published var alert: BaseAlert.Model?
-    @Published var loading: Bool = false
-    
-    func showLoading() {
-        loading = true
-    }
-    
-    func hideLoading() {
-        loading = false
-    }
-    
-    func showAlert(alert: BaseAlert.Model) {
-        self.alert = alert
-    }
-    
-    func hideAlert() {
-        self.alert = nil
-    }
     
     func push(_ destination: NavigationDestination) {
         path.append(destination)
     }
     
-    func presentModal(_ destination: NavigationDestination, fullScreen: Bool = false) {
-        if fullScreen {
-            present = destination
-        } else {
-            presentedModal = destination
-        }
-    }
-    
-    func dismiss() {
-        present = nil
-        presentedModal = nil
-    }
-    
-    func dismiss(withCompletion: @escaping () -> Void) {
-        dismiss()
-        withCompletion()
-    }
-    
     func popToRoot() {
-        guard !path.isEmpty else {
-            print("path is empty, cannot go to root")
-            return
-        }
+        guard !path.isEmpty else { return }
         path.removeLast(path.count)
     }
     
     func popToLast() {
-        guard !path.isEmpty else {
-            print("path is empty, cannot go back")
-            return
-        }
+        guard !path.isEmpty else { return }
         path.removeLast()
-    }
-    
-    func reset() {
-        path = NavigationPath()
-        present = nil
-        presentedModal = nil
     }
 }

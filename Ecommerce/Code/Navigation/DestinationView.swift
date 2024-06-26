@@ -9,13 +9,14 @@ import SwiftUI
 
 struct DestinationView: View {
     var navigationManager: NavigationManager
+    var rootManager: RootManager
     var shoppingCartManager: ShoppingCartManager
     let destination: NavigationDestination
 
     var body: some View {
         switch destination {
         case .productDetail(let product):
-            ProductDetailWireframe(navigationManager: navigationManager, shoppingCartManager: shoppingCartManager, product: product).view
+            ProductDetailWireframe(navigationManager: navigationManager, rootManager: rootManager, shoppingCartManager: shoppingCartManager, product: product).view
         }
     }
 }

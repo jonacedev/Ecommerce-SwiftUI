@@ -10,14 +10,16 @@ final class HomeViewModel: BaseViewModel {
     
     @Published var searchText: String = ""
     @Published var favorites: [Product] = []
-    private var dataManager: HomeDataManager
-    
     var products: [Product] = []
     var user: User?
     
-    init(navigationManager: any NavigationManagerProtocol, dataManager: HomeDataManager) {
+    private var dataManager: HomeDataManager
+    var navigationManager: NavigationManager
+    
+    init(navigationManager: NavigationManager, rootManager: RootManager, dataManager: HomeDataManager) {
+        self.navigationManager = navigationManager
         self.dataManager = dataManager
-        super.init(navigationManager: navigationManager)
+        super.init(rootManager: rootManager)
     }
     
     // MARK: - Private Functions
@@ -89,7 +91,7 @@ final class HomeViewModel: BaseViewModel {
                 .sink{ [weak self] completion in
                     self?.manage(completion: completion)
                 } receiveValue: { [weak self] response in
-                    self?.navigationManager.hideLoading()
+                    self?.rootManager.hideLoading()
                     self?.updateFavorites(isCurrentlyFavorite: false, id: id)
                 }.store(in: &cancellables)
         }

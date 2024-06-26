@@ -11,10 +11,6 @@ final class LaunchViewModel: BaseViewModel {
     
     // MARK: - Properties
     
-    override init(navigationManager: any NavigationManagerProtocol) {
-        super.init(navigationManager: navigationManager)
-    }
-    
     func onAppear() {
         checkDevice()
     }
@@ -47,7 +43,7 @@ final class LaunchViewModel: BaseViewModel {
     }
     
     func goHome() {
-        navigationManager.currentRoot = .home
+        rootManager.changeRootTo(.home)
     }
     
     // MARK: -  Check if is a simulator

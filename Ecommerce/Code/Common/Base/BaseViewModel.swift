@@ -13,10 +13,10 @@ class BaseViewModel: ObservableObject {
     
     var cancellables = Set<AnyCancellable>()
     var userDefaults = UserDefaultsCache()
-    var navigationManager: any NavigationManagerProtocol
+    var rootManager: RootManager
     
-    init(navigationManager: any NavigationManagerProtocol) {
-        self.navigationManager = navigationManager
+    init(rootManager: RootManager) {
+        self.rootManager = rootManager
     }
     
     
@@ -40,19 +40,19 @@ class BaseViewModel: ObservableObject {
     }
     
     func showLoading() {
-        navigationManager.showLoading()
+        rootManager.showLoading()
     }
     
     func hideLoading() {
-        navigationManager.hideLoading()
+        rootManager.hideLoading()
     }
     
     func showAlert(alert: BaseAlert.Model) {
-        navigationManager.showAlert(alert: alert)
+        rootManager.showAlert(alert: alert)
     }
     
     func hideAlert() {
-        navigationManager.hideAlert()
+        rootManager.hideAlert()
     }
     
 }

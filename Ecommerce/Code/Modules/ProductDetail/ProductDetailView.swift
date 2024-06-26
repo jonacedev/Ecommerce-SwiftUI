@@ -5,6 +5,7 @@ import SDWebImageSwiftUI
 struct ProductDetailView: View {
     
     @StateObject var viewModel: ProductDetailViewModel
+    @State var sheetIsPresented: Bool = false
    
     var body: some View {
         BaseView(content: content)
@@ -132,5 +133,5 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-    ProductDetailWireframe(navigationManager: NavigationManager(), shoppingCartManager: ShoppingCartManager(), product: nil).preview()
+    ProductDetailWireframe(navigationManager: NavigationManager(), rootManager: RootManager(), shoppingCartManager: ShoppingCartManager(), product: Product()).view
 }

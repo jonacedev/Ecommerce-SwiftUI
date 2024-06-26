@@ -7,11 +7,13 @@ import SwiftData
 final class CheckoutViewModel: BaseViewModel {
     
     @Published var products: [ProductCartModel] = []
+    var navigationManager: NavigationManager
     var shoppingCartManager: ShoppingCartManager
-    
-    init(navigationManager: any NavigationManagerProtocol, shoppingCartManager: ShoppingCartManager) {
+        
+    init(navigationManager: NavigationManager, rootManager: RootManager, shoppingCartManager: ShoppingCartManager) {
+        self.navigationManager = navigationManager
         self.shoppingCartManager = shoppingCartManager
-        super.init(navigationManager: navigationManager)
+        super.init(rootManager: rootManager)
         observe()
     }
     

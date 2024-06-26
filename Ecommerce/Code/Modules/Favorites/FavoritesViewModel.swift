@@ -8,10 +8,12 @@ final class FavoritesViewModel: BaseViewModel {
 
     @Published var favorites: [Product] = []
     private var dataManager: FavoritesDataManager
+    private var navigationManager: NavigationManager
     
-    init(navigationManager: any NavigationManagerProtocol, dataManager: FavoritesDataManager) {
+    init(navigationManager: NavigationManager, rootManager: RootManager, dataManager: FavoritesDataManager) {
+        self.navigationManager = navigationManager
         self.dataManager = dataManager
-        super.init(navigationManager: navigationManager)
+        super.init(rootManager: rootManager)
     }
 
     // MARK: - Functions

@@ -4,10 +4,12 @@ import SwiftUI
 
 final class FavoritesWireframe {
 
-    private var navigationManager: any NavigationManagerProtocol
+    private var navigationManager: NavigationManager
+    private var rootManager: RootManager
     
-    init(navigationManager: any NavigationManagerProtocol) {
+    init(navigationManager: NavigationManager, rootManager: RootManager) {
         self.navigationManager = navigationManager
+        self.rootManager = rootManager
     }
 
     // MARK: - Private Functions
@@ -17,7 +19,7 @@ final class FavoritesWireframe {
     }
     
     private var viewModel: FavoritesViewModel {
-        FavoritesViewModel(navigationManager: navigationManager, dataManager: dataManager)
+        FavoritesViewModel(navigationManager: navigationManager, rootManager: rootManager, dataManager: dataManager)
     }
     
     private var dataManager: FavoritesDataManager {
